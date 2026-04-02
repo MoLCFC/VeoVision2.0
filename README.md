@@ -256,17 +256,27 @@ pip install -r requirements.txt
 
 ```
 VeoVision/
-├── veovision/              # Core library (pitch config, homography, teams, drawing)
-├── tools/                  # CLI: video server + browser MP4 converter (sources live here)
+├── veovision/              # Core library: pitch config, homography, team classifier, drawing
 ├── veo_project/
-│   ├── batch_process_all.py
-│   └── veo_scripts/        # Per-task pipelines (import from veovision)
-├── veo_frontend/           # Web viewer
+│   ├── batch_process_all.py        # Run all 4 analyses on a folder of videos
+│   └── veo_scripts/                # Per-analysis pipelines (import from veovision/)
+│       ├── video_processing_combined.py
+│       ├── pitch_2d_visualization.py
+│       ├── combined_pitch_heatmap.py
+│       └── ball_tracking.py
+├── veo_frontend/           # Browser video viewer
+├── tools/                  # CLI helpers: server + browser MP4 converter (sources live here)
+├── notebooks/              # Jupyter notebooks (football-ai, player_detection_training)
+├── docs/
+│   └── examples/           # Output screenshots
+├── slides/                 # Logos, posters, social media assets
+├── famous_clips/           # Input videos (not committed; outputs in data_content/)
+├── regular_clips/          # Input videos (not committed; outputs in data_content/)
 ├── requirements.txt        # Python dependencies
 ├── start_video_server.py   # Launcher (delegates to tools/)
-└── convert_videos_for_browser.py
+└── convert_videos_for_browser.py   # Launcher (delegates to tools/)
 ```
-Root-level `teams.py`, `view.py`, `configs_soccer.py`, and `annotators_soccer.py` are thin shims so older `from teams import …` imports (e.g. notebooks) still work.
+Root-level `teams.py`, `view.py`, `configs_soccer.py`, and `annotators_soccer.py` are thin shims so `from teams import …` style imports still work.
 
 ---
 

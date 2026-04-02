@@ -26,3 +26,10 @@ __pycache__/
 .venv/
 venv/
 env/
+
+# Old development test videos (not needed for new users)
+old_content/
+
+# Generated output videos (large; not committed)
+famous_clips/data_content/
+regular_clips/data_content/
