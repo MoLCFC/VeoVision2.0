@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeoVision - Debug</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 2rem;
+        }
+        h1 {
+            color: #00FF00;
+        }
+        h2 {
+            color: #FFD700;
+            margin-top: 2rem;
+        }
+        .video-test {
+            background: #1a1a1a;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border: 1px solid #2a2a2a;
+        }
+        .video-path {
+            color: #00FF00;
+            font-family: monospace;
+            word-break: break-all;
+        }
+        .status {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        .status.loading {
+            background: #333;
+            color: #FFD700;
+        }
+        .status.success {
+            background: #004400;
+            color: #00FF00;
+        }
+        .status.error {
+            background: #440000;
+            color: #ff0000;
+        }
+        video {
+            max-width: 400px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 VeoVision Video Path Debugger</h1>
+    <p>This page helps you verify that all video files exist and can be loaded.</p>
+
+    <h2>📁 Regular Clips - Sample Videos</h2>
+    <div id="regular-samples"></div>
+
+    <h2>📊 Regular Clips - Processed Results</h2>
+    <div id="regular-results"></div>
+
+    <h2>⭐ Famous Clips - Sample Videos</h2>
+    <div id="famous-samples"></div>
+
+    <h2>🎬 Famous Clips - Processed Results</h2>
+    <div id="famous-results"></div>
+
+    <script>
+        const videoData = {
+            regular: ['08fd33_0', '0bfacc_0', '121364_0', '2e57b9_0', '573e61_0'],
+            famous: ['jamie_vardy_having_a_party_1', 'yamal_goal_vs_madrid_1']
+        };
+
+        const paths = {
+            regular: {
+                sample: '../regular_clips/sample_content/',
+                data: '../regular_clips/data_content/'
+            },
+            famous: {
+                sample: '../famous_clips/sample_content/',
+                data: '../famous_clips/output/'
+            }
+        };
+
+        function testVideo(path, name, containerId) {
+            const container = document.getElementById(containerId);
+            const div = document.createElement('div');
+            div.className = 'video-test';
+            div.innerHTML = `
+                <strong>${name}</strong>
+                <div class="video-path">${path}</div>
+                <div class="status loading" id="status-${containerId}-${name}">Testing...</div>
+            `;
+            container.appendChild(div);
+
+            const video = document.createElement('video');
+            video.controls = true;
+            video.preload = 'metadata';
+            
+            const statusDiv = document.getElementById(`status-${containerId}-${name}`);
+            
+            video.onloadedmetadata = function() {
+                statusDiv.className = 'status success';
+                statusDiv.textContent = `✓ Video found! Duration: ${video.duration.toFixed(2)}s`;
+                div.appendChild(video);
+            };
+            
+            video.onerror = function() {
+                statusDiv.className = 'status error';
+                statusDiv.textContent = '✗ Video not found or cannot be loaded';
+            };
+            
+            video.src = path;
+        }
+
+        // Test all videos
+        // Regular samples
+        videoData.regular.forEach(id => {
+            testVideo(
+                paths.regular.sample + id + '.mp4',
+                id + '.mp4',
+                'regular-samples'
+            );
+        });
+
+        // Regular results
+        videoData.regular.forEach(id => {
+            ['_combined_result.mp4', '_2d_pitch.mp4', '_combined_pitch_heatmap.mp4'].forEach(suffix => {
+                testVideo(
+                    paths.regular.data + id + suffix,
+                    id + suffix,
+                    'regular-results'
+                );
+            });
+        });
+
+        // Famous samples
+        videoData.famous.forEach(id => {
+            testVideo(
+                paths.famous.sample + id + '.mp4',
+                id + '.mp4',
+                'famous-samples'
+            );
+        });
+
+        // Famous results
+        videoData.famous.forEach(id => {
+            testVideo(
+                paths.famous.data + id + '_combined_result.mp4',
+                id + '_combined_result.mp4',
+                'famous-results'
+            );
+        });
+    </script>
+</body>
+</html>
+

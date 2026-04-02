@@ -1,0 +1,435 @@
+/* ==========================================
+   VeoVision Frontend Styles
+   Theme: Black, Green (#00FF00), Yellow (#FFD700)
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-black: #000000;
+    --color-dark-gray: #1a1a1a;
+    --color-medium-gray: #2a2a2a;
+    --color-light-gray: #3a3a3a;
+    --color-green: #00FF00;
+    --color-yellow: #FFD700;
+    --color-white: #ffffff;
+    --color-text-gray: #cccccc;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   Header & Logo
+   ========================================== */
+
+.header {
+    background: linear-gradient(135deg, var(--color-dark-gray) 0%, var(--color-black) 100%);
+    padding: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0, 255, 0, 0.1);
+    border-bottom: 2px solid var(--color-green);
+}
+
+.logo {
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 0, 0.3));
+}
+
+/* ==========================================
+   Container & Layout
+   ========================================== */
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.main-content {
+    padding: 3rem 0;
+    min-height: calc(100vh - 200px);
+}
+
+/* ==========================================
+   Section Styling
+   ========================================== */
+
+.video-section {
+    margin: 3rem 0;
+    padding: 2rem 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--color-green) 0%, var(--color-yellow) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-description {
+    text-align: center;
+    color: var(--color-text-gray);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+.section-divider {
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--color-green) 20%, 
+        var(--color-yellow) 50%, 
+        var(--color-green) 80%, 
+        transparent 100%);
+    margin: 4rem 0;
+}
+
+/* ==========================================
+   Video Grid
+   ========================================== */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.video-card {
+    background: var(--color-dark-gray);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--color-medium-gray);
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 255, 0, 0.2);
+    border-color: var(--color-green);
+}
+
+.video-card video {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    background: var(--color-black);
+    display: block;
+}
+
+.video-card-info {
+    padding: 1.5rem;
+}
+
+.video-card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+}
+
+.video-card-description {
+    color: var(--color-text-gray);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* ==========================================
+   Buttons
+   ========================================== */
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-green) 0%, #00cc00 100%);
+    color: var(--color-black);
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #00ff33 0%, var(--color-green) 100%);
+    box-shadow: 0 6px 20px rgba(0, 255, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--color-medium-gray);
+    color: var(--color-white);
+    border: 1px solid var(--color-light-gray);
+}
+
+.btn-secondary:hover {
+    background: var(--color-light-gray);
+    border-color: var(--color-green);
+}
+
+.btn-results {
+    background: linear-gradient(135deg, var(--color-yellow) 0%, #ffaa00 100%);
+    color: var(--color-black);
+    width: 100%;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.btn-results:hover {
+    background: linear-gradient(135deg, #ffdd33 0%, var(--color-yellow) 100%);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   Modal
+   ========================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    position: relative;
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 1600px;
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-btn {
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    font-size: 3rem;
+    color: var(--color-green);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: var(--color-yellow);
+    transform: rotate(90deg);
+}
+
+.modal-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--color-green);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ==========================================
+   Video Layouts
+   ========================================== */
+
+.results-container {
+    margin: 2rem 0;
+}
+
+/* Regular Clips Layout (3 videos) */
+.video-layout-regular {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.video-main {
+    width: 100%;
+}
+
+.video-bottom-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.video-bottom-item {
+    width: 100%;
+}
+
+/* Famous Clips Layout (1 video) */
+.video-layout-famous {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.video-single {
+    width: 100%;
+}
+
+/* Video Label */
+.video-label {
+    color: var(--color-yellow);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Video Players in Modal */
+.modal-content video {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 255, 0, 0.2);
+    background: var(--color-black);
+    border: 2px solid var(--color-medium-gray);
+}
+
+.modal-content video:hover {
+    border-color: var(--color-green);
+}
+
+/* ==========================================
+   Sync Controls
+   ========================================== */
+
+.sync-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: var(--color-dark-gray);
+    border-radius: 12px;
+    border: 1px solid var(--color-medium-gray);
+}
+
+/* ==========================================
+   Loading State
+   ========================================== */
+
+.loading {
+    text-align: center;
+    padding: 4rem;
+    color: var(--color-text-gray);
+}
+
+.loading::after {
+    content: '...';
+    animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+/* ==========================================
+   Responsive Design
+   ========================================== */
+
+@media (max-width: 1200px) {
+    .video-bottom-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        max-width: 250px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .sync-controls {
+        flex-direction: column;
+    }
+
+    .sync-controls .btn {
+        width: 100%;
+    }
+}
+
+/* ==========================================
+   Scrollbar Styling
+   ========================================== */
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-green);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-yellow);
+}
+

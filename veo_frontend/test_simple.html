@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Path Test</title>
+    <style>
+        body { background: #000; color: #0f0; font-family: monospace; padding: 2rem; }
+        video { width: 500px; border: 2px solid #0f0; margin: 1rem 0; display: block; }
+        h2 { color: #ff0; }
+        .path { color: #0ff; margin-bottom: 1rem; }
+        .success { color: #0f0; }
+        .error { color: #f00; }
+    </style>
+</head>
+<body>
+    <h1>🎯 VeoVision - Simple Video Test</h1>
+    <p>Testing if videos load from regular_clips/data_content/</p>
+
+    <h2>Test Video 1: 08fd33_0_combined_result.mp4</h2>
+    <div class="path">Path: ../regular_clips/data_content/08fd33_0_combined_result.mp4</div>
+    <video id="test1" controls>
+        <source src="../regular_clips/data_content/08fd33_0_combined_result.mp4" type="video/mp4">
+    </video>
+    <div id="status1">Loading...</div>
+
+    <h2>Test Video 2: 08fd33_0_2d_pitch.mp4</h2>
+    <div class="path">Path: ../regular_clips/data_content/08fd33_0_2d_pitch.mp4</div>
+    <video id="test2" controls>
+        <source src="../regular_clips/data_content/08fd33_0_2d_pitch.mp4" type="video/mp4">
+    </video>
+    <div id="status2">Loading...</div>
+
+    <h2>Test Video 3: 08fd33_0_combined_pitch_heatmap.mp4</h2>
+    <div class="path">Path: ../regular_clips/data_content/08fd33_0_combined_pitch_heatmap.mp4</div>
+    <video id="test3" controls>
+        <source src="../regular_clips/data_content/08fd33_0_combined_pitch_heatmap.mp4" type="video/mp4">
+    </video>
+    <div id="status3">Loading...</div>
+
+    <hr>
+
+    <h2>🎮 Test Buttons</h2>
+    <button onclick="playAll()" style="background:#0f0;color:#000;padding:1rem;margin:0.5rem;font-size:1.2rem;cursor:pointer;border:none;border-radius:8px;">
+        ▶ Play All
+    </button>
+    <button onclick="pauseAll()" style="background:#ff0;color:#000;padding:1rem;margin:0.5rem;font-size:1.2rem;cursor:pointer;border:none;border-radius:8px;">
+        ⏸ Pause All
+    </button>
+
+    <script>
+        // Test each video
+        for (let i = 1; i <= 3; i++) {
+            const video = document.getElementById('test' + i);
+            const status = document.getElementById('status' + i);
+
+            video.onloadedmetadata = function() {
+                status.className = 'success';
+                status.textContent = '✅ SUCCESS! Video loaded. Duration: ' + video.duration.toFixed(2) + 's';
+                console.log('Video', i, 'loaded successfully');
+            };
+
+            video.onerror = function() {
+                status.className = 'error';
+                status.textContent = '❌ ERROR! Video failed to load.';
+                console.error('Video', i, 'failed to load:', video.src);
+            };
+
+            video.oncanplay = function() {
+                console.log('Video', i, 'can play');
+            };
+        }
+
+        function playAll() {
+            console.log('Playing all videos...');
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById('test' + i).play().catch(e => {
+                    console.error('Play error for video', i, ':', e);
+                });
+            }
+        }
+
+        function pauseAll() {
+            console.log('Pausing all videos...');
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById('test' + i).pause();
+            }
+        }
+
+        console.log('Current location:', window.location.href);
+    </script>
+</body>
+</html>
+

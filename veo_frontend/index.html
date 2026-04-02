@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeoVision - AI Soccer Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="container">
+            <img src="../slides/VeoVision_LOGO.png" alt="VeoVision Logo" class="logo">
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Regular Clips Section -->
+            <section class="video-section" id="regular-section">
+                <h1 class="section-title">Regular Clips</h1>
+                <p class="section-description">Professional soccer match analysis with full AI processing</p>
+                
+                <div class="video-grid" id="regular-grid">
+                    <!-- Videos will be dynamically loaded here -->
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Famous Clips Section -->
+            <section class="video-section" id="famous-section">
+                <h1 class="section-title">Famous Clips</h1>
+                <p class="section-description">Iconic soccer moments analyzed with AI detection</p>
+                
+                <div class="video-grid" id="famous-grid">
+                    <!-- Videos will be dynamically loaded here -->
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Video Modal for Results -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            
+            <!-- Regular Clips Results (3 videos) -->
+            <div id="regularResults" class="results-container">
+                <div class="video-layout-regular">
+                    <!-- Top video (main) -->
+                    <div class="video-main">
+                        <h3 class="video-label">Player Detection & Team Classification</h3>
+                        <video id="mainVideo" controls preload="auto">
+                            <source src="" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    
+                    <!-- Bottom videos -->
+                    <div class="video-bottom-row">
+                        <div class="video-bottom-item">
+                            <h3 class="video-label">2D Tactical View</h3>
+                            <video id="leftVideo" controls preload="auto">
+                                <source src="" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="video-bottom-item">
+                            <h3 class="video-label">Heatmap & Territory Control</h3>
+                            <video id="rightVideo" controls preload="auto">
+                                <source src="" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Famous Clips Results (1 video only) -->
+            <div id="famousResults" class="results-container" style="display: none;">
+                <div class="video-layout-famous">
+                    <div class="video-single">
+                        <h3 class="video-label">Player Detection & Team Classification</h3>
+                        <video id="singleVideo" controls preload="auto">
+                            <source src="" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sync Controls -->
+            <div class="sync-controls" id="syncControls">
+                <button class="btn btn-primary" onclick="syncPlay()">
+                    <span>▶</span> Play All
+                </button>
+                <button class="btn btn-secondary" onclick="syncPause()">
+                    <span>⏸</span> Pause All
+                </button>
+                <button class="btn btn-secondary" onclick="syncRestart()">
+                    <span>⏮</span> Restart All
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
