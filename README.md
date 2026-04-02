@@ -8,15 +8,72 @@ Automated soccer video analysis tools using AI to detect players, track the ball
 
 ## Quick Start
 
-### 1. Installation
+### 🚀 Batch Process Multiple Videos (Recommended)
+
+Process all videos in a folder with a single command! This will run all 4 analysis scripts on every video automatically.
+
+**Default (Famous Clips):**
+```bash
+python veo_project/batch_process_all.py
+```
+This processes all videos in `famous_clips/` and saves outputs to `famous_clips/data_content/`
+
+**Custom Folders:**
+```bash
+# Specify input and output folders
+python veo_project/batch_process_all.py --input "regular_clips/sample_content" --output "regular_clips/data_content"
+
+# Or any other folder
+python veo_project/batch_process_all.py --input "my_videos" --output "my_results"
+```
+
+**What You Get:**
+
+For each video (e.g., `match.mp4`), you'll get 4 outputs (plus browser-safe copies):
+- ✅ `match_combined_result.mp4`             - Full player detection with tracking IDs
+- ✅ `match_2d_pitch.mp4`                    - Top-down tactical view with possession
+- ✅ `match_combined_pitch_heatmap.mp4`      - Heatmap with territorial control
+- ✅ `match_ball_tracking.mp4`               - Ball trajectory visualization
+- ✅ `*_browser.mp4` versions (H.264/AAC)    - For the web UI player
+
+**Features:**
+- 🎯 Processes all `.mp4` files in the folder automatically
+- 📊 Shows progress and timing for each video
+- ✓ Reports success/failure for each script
+- 📁 Automatically creates output folder if needed
+
+See `veo_project/README.md` for more details.
+
+---
+
+### 🖥️ Frontend Viewer (Plays processed videos)
+- Start server (range-support, port 5600):  
+  ```bash
+  python start_video_server.py
+  ```
+- Open in browser: `http://localhost:5600/veo_frontend/`
+- The frontend automatically prefers the `_browser.mp4` files. If you only see black players, run the converter below.
+
+### 🎥 Make videos browser-compatible
+If videos don't play in the browser, convert them (keeps originals, adds `_browser.mp4`):
+```bash
+python convert_videos_for_browser.py
+```
+You need ffmpeg installed (see `FFMPEG_INSTALL_GUIDE.md`).
+
+---
+
+### 📋 Manual Processing (Individual Videos)
+
+#### 1. Installation
 
 Install all required packages:
 
 ```bash
-pip install -r veo_project/requirements.txt
+pip install -r requirements.txt
 ```
 
-### 2. Set Your API Key
+#### 2. Set Your API Key
 
 Set your Roboflow API key as an environment variable:
 
@@ -32,7 +89,7 @@ export ROBOFLOW_API_KEY="your_api_key_here"
 
 Or edit the script directly and change the API key at the top.
 
-### 3. Process Your Video
+#### 3. Process Your Video
 
 Edit the video paths at the top of any script:
 
@@ -176,7 +233,7 @@ confidence=0.3  # Lower = more detections, higher = fewer but more accurate
 
 ### "ModuleNotFoundError"
 ```bash
-pip install -r veo_project/requirements.txt
+pip install -r requirements.txt
 ```
 
 ### "Video not found"
@@ -195,19 +252,21 @@ pip install -r veo_project/requirements.txt
 
 ---
 
-## File Structure
+## Repository layout
 
 ```
-veo_project/
-├── veo_scripts/
-│   ├── video_processing_combined.py    # Original video + annotations
-│   ├── pitch_2d_visualization.py       # 2D tactical view
-│   ├── voronoi_heatmap.py             # Territorial heatmap
-│   ├── combined_pitch_heatmap.py      # Combined visualization
-│   └── ball_tracking.py               # Ball trajectory
-├── requirements.txt                    # All dependencies
-└── README.md                          # This file
+VeoVision/
+├── veovision/              # Core library (pitch config, homography, teams, drawing)
+├── tools/                  # CLI: video server + browser MP4 converter (sources live here)
+├── veo_project/
+│   ├── batch_process_all.py
+│   └── veo_scripts/        # Per-task pipelines (import from veovision)
+├── veo_frontend/           # Web viewer
+├── requirements.txt        # Python dependencies
+├── start_video_server.py   # Launcher (delegates to tools/)
+└── convert_videos_for_browser.py
 ```
+Root-level `teams.py`, `view.py`, `configs_soccer.py`, and `annotators_soccer.py` are thin shims so older `from teams import …` imports (e.g. notebooks) still work.
 
 ---
 

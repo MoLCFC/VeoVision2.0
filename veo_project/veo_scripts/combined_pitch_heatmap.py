@@ -29,10 +29,14 @@ import numpy as np
 # Add parent directory to path to import custom modules
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from teams import TeamClassifier
-from view import ViewTransformer
-from annotators_soccer import draw_pitch, draw_points_on_pitch, draw_pitch_voronoi_diagram
-from configs_soccer import SoccerPitchConfiguration
+from veovision.teams import TeamClassifier
+from veovision.view import ViewTransformer
+from veovision.annotators_soccer import (
+    draw_pitch,
+    draw_points_on_pitch,
+    draw_pitch_voronoi_diagram,
+)
+from veovision.configs_soccer import SoccerPitchConfiguration
 from inference import get_model
 
 # ============================================================================

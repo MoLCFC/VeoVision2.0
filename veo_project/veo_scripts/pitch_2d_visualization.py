@@ -16,10 +16,10 @@ from inference import get_model
 # Add parent directory to path to import custom modules
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from teams import TeamClassifier
-from view import ViewTransformer
-from configs_soccer import SoccerPitchConfiguration
-from annotators_soccer import draw_pitch, draw_points_on_pitch
+from veovision.teams import TeamClassifier
+from veovision.view import ViewTransformer
+from veovision.configs_soccer import SoccerPitchConfiguration
+from veovision.annotators_soccer import draw_pitch, draw_points_on_pitch
 
 
 def extract_crops(video_path: str, player_detection_model, player_id: int = 2, 

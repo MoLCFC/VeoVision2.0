@@ -11,17 +11,20 @@ import cv2
 from tqdm import tqdm
 import supervision as sv
 from inference import get_model
-from view import ViewTransformer
-from configs_soccer import SoccerPitchConfiguration
-from annotators_soccer import draw_pitch, draw_points_on_pitch
-from sports.annotators.soccer import draw_paths_on_pitch
+from veovision.view import ViewTransformer
+from veovision.configs_soccer import SoccerPitchConfiguration
+from veovision.annotators_soccer import (
+    draw_pitch,
+    draw_points_on_pitch,
+    draw_paths_on_pitch,
+)
 
 # ========================
 # CONFIGURATION
 # ========================
 
-SOURCE_VIDEO_PATH = r"content\testvid.mp4"
-TARGET_VIDEO_PATH = r"content\testvid_ball_tracking.mp4"
+SOURCE_VIDEO_PATH = r"old_content\testvid.mp4"
+TARGET_VIDEO_PATH = r"old_content\testvid_ball_tracking.mp4"
 
 ROBOFLOW_API_KEY = os.getenv("ROBOFLOW_API_KEY", "urspUQutaAeYNtL3l5Nq")
 PLAYER_DETECTION_MODEL_ID = "veovision-tnp3c/1"

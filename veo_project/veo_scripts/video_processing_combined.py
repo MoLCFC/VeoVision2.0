@@ -15,9 +15,9 @@ from inference import get_model
 # Add parent directory to path to import custom modules
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from teams import TeamClassifier
-from view import ViewTransformer
-from configs_soccer import SoccerPitchConfiguration
+from veovision.teams import TeamClassifier
+from veovision.view import ViewTransformer
+from veovision.configs_soccer import SoccerPitchConfiguration
 
 
 def extract_crops(video_path: str, player_detection_model, player_id: int = 2, 
@@ -259,8 +259,8 @@ def process_video(source_video_path: str, target_video_path: str,
 
 if __name__ == "__main__":
     # Configuration
-    SOURCE_VIDEO_PATH = r"content\testvid.mp4"
-    TARGET_VIDEO_PATH = r"content\testvid_combined_result.mp4"
+    SOURCE_VIDEO_PATH = r"old_content\testvid.mp4"
+    TARGET_VIDEO_PATH = r"old_content\testvid_combined_result.mp4"
     
     # Optional: Set your Roboflow API key here or use environment variable
     ROBOFLOW_API_KEY = os.getenv("ROBOFLOW_API_KEY", "urspUQutaAeYNtL3l5Nq")
