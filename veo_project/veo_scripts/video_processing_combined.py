@@ -60,10 +60,23 @@ def resolve_goalkeepers_team_id(players: sv.Detections, goalkeepers: sv.Detectio
     Returns:
         Array of team IDs for goalkeepers
     """
+    if len(goalkeepers) == 0:
+        return np.array([], dtype=int)
+    if len(players) == 0:
+        return np.zeros(len(goalkeepers), dtype=int)
+
     goalkeepers_xy = goalkeepers.get_anchors_coordinates(sv.Position.BOTTOM_CENTER)
     players_xy = players.get_anchors_coordinates(sv.Position.BOTTOM_CENTER)
-    team_0_centroid = players_xy[players.class_id == 0].mean(axis=0)
-    team_1_centroid = players_xy[players.class_id == 1].mean(axis=0)
+    team_0_players = players_xy[players.class_id == 0]
+    team_1_players = players_xy[players.class_id == 1]
+
+    if len(team_0_players) == 0:
+        return np.ones(len(goalkeepers), dtype=int)
+    if len(team_1_players) == 0:
+        return np.zeros(len(goalkeepers), dtype=int)
+
+    team_0_centroid = team_0_players.mean(axis=0)
+    team_1_centroid = team_1_players.mean(axis=0)
     goalkeepers_team_id = []
     
     for goalkeeper_xy in goalkeepers_xy:
@@ -71,7 +84,7 @@ def resolve_goalkeepers_team_id(players: sv.Detections, goalkeepers: sv.Detectio
         dist_1 = np.linalg.norm(goalkeeper_xy - team_1_centroid)
         goalkeepers_team_id.append(0 if dist_0 < dist_1 else 1)
 
-    return np.array(goalkeepers_team_id)
+    return np.array(goalkeepers_team_id, dtype=int)
 
 
 def process_video(source_video_path: str, target_video_path: str, 
@@ -108,8 +121,10 @@ def process_video(source_video_path: str, target_video_path: str,
     # Extract crops and train team classifier
     print("Training team classifier...")
     crops = extract_crops(source_video_path, PLAYER_DETECTION_MODEL)
-    team_classifier = TeamClassifier()
-    team_classifier.fit(crops)
+    team_classifier = None
+    if len(crops) > 0:
+        team_classifier = TeamClassifier()
+        team_classifier.fit(crops)
     
     # Setup annotators for detections
     ellipse_annotator = sv.EllipseAnnotator(
@@ -180,7 +195,11 @@ def process_video(source_video_path: str, target_video_path: str,
             referees_detections = all_detections[all_detections.class_id == REFEREE_ID]
             
             players_crops = [sv.crop_image(frame, xyxy) for xyxy in players_detections.xyxy]
-            players_detections.class_id = team_classifier.predict(players_crops).astype(int)
+            if len(players_detections) > 0:
+                if team_classifier is None or len(players_crops) == 0:
+                    players_detections.class_id = np.zeros(len(players_detections), dtype=int)
+                else:
+                    players_detections.class_id = team_classifier.predict(players_crops).astype(int)
 
             goalkeepers_detections.class_id = resolve_goalkeepers_team_id(
                 players_detections, goalkeepers_detections
@@ -200,42 +219,53 @@ def process_video(source_video_path: str, target_video_path: str,
             ]
             
             # Pitch detection and line transformation
+            frame_all_key_points = None
+            frame_reference_key_points = None
             pitch_result = PITCH_DETECTION_MODEL.infer(frame, confidence=0.3)[0]
             key_points = sv.KeyPoints.from_inference(pitch_result)
 
-            filter_mask = key_points.confidence[0] > 0.5
-            frame_reference_points = key_points.xy[0][filter_mask]
-            frame_reference_key_points = sv.KeyPoints(
-                xy=frame_reference_points[np.newaxis, ...]
-            )
+            if (
+                key_points.confidence is not None
+                and len(key_points.confidence) > 0
+                and key_points.xy is not None
+                and len(key_points.xy) > 0
+            ):
+                filter_mask = key_points.confidence[0] > 0.5
+                if np.count_nonzero(filter_mask) >= 4:
+                    frame_reference_points = key_points.xy[0][filter_mask]
+                    frame_reference_key_points = sv.KeyPoints(
+                        xy=frame_reference_points[np.newaxis, ...]
+                    )
 
-            pitch_reference_points = np.array(CONFIG.vertices)[filter_mask]
+                    pitch_reference_points = np.array(CONFIG.vertices)[filter_mask]
 
-            transformer = ViewTransformer(
-                source=pitch_reference_points,
-                target=frame_reference_points
-            )
+                    transformer = ViewTransformer(
+                        source=pitch_reference_points,
+                        target=frame_reference_points
+                    )
 
-            pitch_all_points = np.array(CONFIG.vertices)
-            frame_all_points = transformer.transform_points(points=pitch_all_points)
-            frame_all_key_points = sv.KeyPoints(xy=frame_all_points[np.newaxis, ...])
+                    pitch_all_points = np.array(CONFIG.vertices)
+                    frame_all_points = transformer.transform_points(points=pitch_all_points)
+                    frame_all_key_points = sv.KeyPoints(xy=frame_all_points[np.newaxis, ...])
             
             # Annotate frame with everything
             annotated_frame = frame.copy()
             
             # Draw pitch lines first (background)
-            annotated_frame = edge_annotator.annotate(
-                scene=annotated_frame,
-                key_points=frame_all_key_points
-            )
-            annotated_frame = vertex_annotator_2.annotate(
-                scene=annotated_frame,
-                key_points=frame_all_key_points
-            )
-            annotated_frame = vertex_annotator.annotate(
-                scene=annotated_frame,
-                key_points=frame_reference_key_points
-            )
+            if frame_all_key_points is not None:
+                annotated_frame = edge_annotator.annotate(
+                    scene=annotated_frame,
+                    key_points=frame_all_key_points
+                )
+                annotated_frame = vertex_annotator_2.annotate(
+                    scene=annotated_frame,
+                    key_points=frame_all_key_points
+                )
+            if frame_reference_key_points is not None:
+                annotated_frame = vertex_annotator.annotate(
+                    scene=annotated_frame,
+                    key_points=frame_reference_key_points
+                )
             
             # Draw detections on top
             annotated_frame = ellipse_annotator.annotate(

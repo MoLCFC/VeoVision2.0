@@ -3,110 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VeoVision - AI Soccer Analysis</title>
+    <title>VeoVision Dashboard</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header with Logo -->
-    <header class="header">
-        <div class="container">
-            <img src="../slides/VeoVision_LOGO.png" alt="VeoVision Logo" class="logo">
-        </div>
-    </header>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <img src="../slides/VeoVision_LOGO.png" alt="VeoVision Logo" class="brand-logo">
+                <div class="brand-text">
+                    <h1>VeoVision</h1>
+                    <p>AI Football Analytics</p>
+                </div>
+            </div>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            
-            <!-- Regular Clips Section -->
-            <section class="video-section" id="regular-section">
-                <h1 class="section-title">Regular Clips</h1>
-                <p class="section-description">Professional soccer match analysis with full AI processing</p>
-                
-                <div class="video-grid" id="regular-grid">
-                    <!-- Videos will be dynamically loaded here -->
+            <nav class="nav">
+                <button class="nav-item active">Dashboard</button>
+                <button class="nav-item">Upload Video</button>
+                <button class="nav-item">Live Analysis</button>
+                <button class="nav-item">Match Analysis</button>
+                <button class="nav-item">Players</button>
+                <button class="nav-item">Events</button>
+                <button class="nav-item">Heatmaps</button>
+                <button class="nav-item">Settings</button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>Developed by</p>
+                <strong>Veo Vision</strong>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div>
+                    <h2>Dashboard</h2>
+                    <p>AI-Powered Football Video Analytics System</p>
+                </div>
+                <div class="topbar-actions">
+                    <label for="uploadInput" class="btn btn-primary">Upload New Video</label>
+                    <input id="uploadInput" type="file" accept="video/mp4,video/quicktime,video/x-msvideo">
+                </div>
+            </header>
+
+            <section class="workspace-grid">
+                <section class="video-workspace">
+                    <div class="workspace-main">
+                        <div class="panel-title panel-title-row">
+                            <div>
+                                <h3>Main Analysis Video</h3>
+                                <p id="activeClipLabel">Pick a clip from Regular or Famous sections</p>
+                            </div>
+                            <button id="mainFullscreenBtn" class="btn btn-secondary btn-compact">Fullscreen</button>
+                        </div>
+                        <video id="mainVideo" controls preload="auto"></video>
+                        <div id="mainFallback" class="fallback">Main analysis video is not available.</div>
+                    </div>
+
+                    <div class="workspace-secondary">
+                        <div class="mini-panel">
+                            <div class="mini-panel-header">
+                                <h4>2D Tactical View</h4>
+                                <button id="pitch2dFullscreenBtn" class="btn btn-secondary btn-compact">Fullscreen</button>
+                            </div>
+                            <video id="pitch2dVideo" preload="auto" muted></video>
+                            <div id="pitch2dFallback" class="fallback">Not available for this clip yet.</div>
+                        </div>
+                        <div class="mini-panel">
+                            <div class="mini-panel-header">
+                                <h4>Heatmap & Control</h4>
+                                <button id="heatmapFullscreenBtn" class="btn btn-secondary btn-compact">Fullscreen</button>
+                            </div>
+                            <video id="heatmapVideo" preload="auto" muted></video>
+                            <div id="heatmapFallback" class="fallback">Not available for this clip yet.</div>
+                        </div>
+                        <div class="mini-panel">
+                            <div class="mini-panel-header">
+                                <h4>Ball Tracker</h4>
+                                <button id="ballFullscreenBtn" class="btn btn-secondary btn-compact">Fullscreen</button>
+                            </div>
+                            <video id="ballVideo" preload="auto" muted></video>
+                            <div id="ballFallback" class="fallback">Not available for this clip yet.</div>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button id="playAllBtn" class="btn btn-primary">Play All</button>
+                        <button id="pauseAllBtn" class="btn btn-secondary">Pause All</button>
+                        <button id="restartAllBtn" class="btn btn-secondary">Restart All</button>
+                        <button id="runPipelineBtn" class="btn btn-accent">Run Full Model Pipeline</button>
+                        <button id="runMissingBtn" class="btn btn-secondary">Complete Missing Only</button>
+                        <button id="runStatsOnlyBtn" class="btn btn-secondary">Run Stats Only</button>
+                        <button id="run2dOnlyBtn" class="btn btn-secondary">Run 2D Only</button>
+                        <button id="runHeatmapOnlyBtn" class="btn btn-secondary">Run Heatmap Only</button>
+                        <button id="runBallOnlyBtn" class="btn btn-secondary">Run Ball Only</button>
+                    </div>
+                </section>
+
+                <aside class="summary-panel">
+                    <h3>Match Summary</h3>
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <h4>Ball Possession</h4>
+                            <p><span id="possessionTeam0">0</span>% / <span id="possessionTeam1">0</span>%</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Total Passes</h4>
+                            <p><span id="passesTotal">0</span></p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Total Shots</h4>
+                            <p><span id="shotsTotal">0</span></p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Shots On Target</h4>
+                            <p><span id="shotsOnTargetTotal">0</span></p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Turnovers</h4>
+                            <p><span id="turnoversTotal">0</span></p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Interceptions</h4>
+                            <p><span id="interceptionsTotal">0</span></p>
+                        </div>
+                    </div>
+
+                    <div class="team-breakdown">
+                        <h4>Team Breakdown</h4>
+                        <div class="team-row"><span>Team 0</span><span id="team0Breakdown">-</span></div>
+                        <div class="team-row"><span>Team 1</span><span id="team1Breakdown">-</span></div>
+                    </div>
+
+                    <div class="player-insights">
+                        <h4>Player Insights</h4>
+                        <div class="insight-card">
+                            <strong>Team 0</strong>
+                            <div id="team0Insights">No data</div>
+                        </div>
+                        <div class="insight-card">
+                            <strong>Team 1</strong>
+                            <div id="team1Insights">No data</div>
+                        </div>
+                    </div>
+
+                    <div class="export-actions">
+                        <button id="exportJsonBtn" class="btn btn-secondary">Export JSON</button>
+                        <button id="exportCsvBtn" class="btn btn-secondary">Export CSV</button>
+                        <button id="exportReportBtn" class="btn btn-accent">Export Report</button>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="library">
+                <div class="library-col">
+                    <div class="library-header">
+                        <h3>Regular Clips</h3>
+                        <p>Full processed set: main + 2D + heatmap + ball + stats</p>
+                    </div>
+                    <div id="regularGrid" class="clip-grid"></div>
+                </div>
+                <div class="library-col">
+                    <div class="library-header">
+                        <h3>Famous Clips</h3>
+                        <p>Iconic moments, run full pipeline when needed</p>
+                    </div>
+                    <div id="famousGrid" class="clip-grid"></div>
+                </div>
+                <div class="library-col">
+                    <div class="library-header">
+                        <h3>Uploaded Clips</h3>
+                        <p>Your uploaded videos and their processed outputs</p>
+                    </div>
+                    <div id="uploadedGrid" class="clip-grid"></div>
                 </div>
             </section>
 
-            <div class="section-divider"></div>
-
-            <!-- Famous Clips Section -->
-            <section class="video-section" id="famous-section">
-                <h1 class="section-title">Famous Clips</h1>
-                <p class="section-description">Iconic soccer moments analyzed with AI detection</p>
-                
-                <div class="video-grid" id="famous-grid">
-                    <!-- Videos will be dynamically loaded here -->
-                </div>
+            <section class="events-panel">
+                <h3>Key Events (Playback-Synced)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Event</th>
+                            <th>Team</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventsBody"></tbody>
+                </table>
             </section>
 
-        </div>
-    </main>
+            <section class="jobs-panel">
+                <h3>Processing Jobs</h3>
+                <div id="jobsList" class="jobs-list"></div>
+            </section>
 
-    <!-- Video Modal for Results -->
-    <div id="videoModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 class="modal-title" id="modalTitle"></h2>
-            
-            <!-- Regular Clips Results (3 videos) -->
-            <div id="regularResults" class="results-container">
-                <div class="video-layout-regular">
-                    <!-- Top video (main) -->
-                    <div class="video-main">
-                        <h3 class="video-label">Player Detection & Team Classification</h3>
-                        <video id="mainVideo" controls preload="auto">
-                            <source src="" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    
-                    <!-- Bottom videos -->
-                    <div class="video-bottom-row">
-                        <div class="video-bottom-item">
-                            <h3 class="video-label">2D Tactical View</h3>
-                            <video id="leftVideo" controls preload="auto">
-                                <source src="" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <div class="video-bottom-item">
-                            <h3 class="video-label">Heatmap & Territory Control</h3>
-                            <video id="rightVideo" controls preload="auto">
-                                <source src="" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Famous Clips Results (1 video only) -->
-            <div id="famousResults" class="results-container" style="display: none;">
-                <div class="video-layout-famous">
-                    <div class="video-single">
-                        <h3 class="video-label">Player Detection & Team Classification</h3>
-                        <video id="singleVideo" controls preload="auto">
-                            <source src="" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sync Controls -->
-            <div class="sync-controls" id="syncControls">
-                <button class="btn btn-primary" onclick="syncPlay()">
-                    <span>▶</span> Play All
-                </button>
-                <button class="btn btn-secondary" onclick="syncPause()">
-                    <span>⏸</span> Pause All
-                </button>
-                <button class="btn btn-secondary" onclick="syncRestart()">
-                    <span>⏮</span> Restart All
-                </button>
-            </div>
-        </div>
+            <footer class="footer">
+                <span>Created by Veo Vision</span>
+                <a id="githubLink" href="https://github.com/MoLCFC/VeoVision2.0" target="_blank" rel="noreferrer">GitHub Project</a>
+            </footer>
+        </main>
     </div>
 
     <script src="script.js"></script>

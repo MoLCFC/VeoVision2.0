@@ -191,6 +191,24 @@ python veo_project/veo_scripts/ball_tracking.py
 
 ---
 
+### 5. **match_stats_collection.py**
+FIFA-style match stat estimation export (JSON + CSV)
+
+**What it does:**
+- Estimates team possession percentage
+- Counts completed passes, turnovers, and interceptions
+- Estimates shots, shots on target, and goals
+- Writes machine-readable outputs for dashboards/analysis
+
+**Output:** `*_match_stats.json` and `*_match_stats.csv`
+
+**Run:**
+```bash
+python veo_project/veo_scripts/match_stats_collection.py
+```
+
+---
+
 ## Configuration
 
 All scripts follow the same pattern. Edit at the top of each script:
