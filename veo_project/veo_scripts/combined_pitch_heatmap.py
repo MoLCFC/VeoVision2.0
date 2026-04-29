@@ -25,6 +25,7 @@ import os
 import sys
 import torch
 import numpy as np
+from typing import Dict, Optional
 
 # Add parent directory to path to import custom modules
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
@@ -126,7 +127,7 @@ def resolve_goalkeepers_team_id(
         Array of team IDs for goalkeepers
     """
     if len(goalkeepers) == 0:
-        return np.array([])
+        return np.array([], dtype=int)
     
     if len(players) == 0:
         return np.zeros(len(goalkeepers), dtype=int)
@@ -152,7 +153,7 @@ def resolve_goalkeepers_team_id(
         dist_1 = np.linalg.norm(goalkeeper_xy - team_1_centroid)
         goalkeepers_team_id.append(0 if dist_0 < dist_1 else 1)
 
-    return np.array(goalkeepers_team_id)
+    return np.array(goalkeepers_team_id, dtype=int)
 
 
 def process_video_combined(source_video_path: str, target_video_path: str, 
@@ -214,6 +215,10 @@ def process_video_combined(source_video_path: str, target_video_path: str,
 
     # Track last known ball position for possession calculation
     last_known_ball_position = None
+    tracker_team_cache: Dict[int, int] = {}
+    last_view_transformer: Optional[ViewTransformer] = None
+    transform_stale_frames = 0
+    MAX_TRANSFORM_STALE_FRAMES = 12
 
     # Process video frames
     with video_sink:
@@ -240,8 +245,24 @@ def process_video_combined(source_video_path: str, target_video_path: str,
             
             # Classify players into teams
             if len(players_detections) > 0 and team_classifier is not None:
-                players_crops = [sv.crop_image(frame, xyxy) for xyxy in players_detections.xyxy]
-                players_detections.class_id = team_classifier.predict(players_crops).astype(int)
+                assigned_team_ids = np.full(len(players_detections), -1, dtype=int)
+                unknown_indices = []
+                unknown_crops = []
+                for idx, (tracker_id, xyxy) in enumerate(zip(players_detections.tracker_id, players_detections.xyxy)):
+                    if tracker_id is not None and int(tracker_id) in tracker_team_cache:
+                        assigned_team_ids[idx] = tracker_team_cache[int(tracker_id)]
+                    else:
+                        unknown_indices.append(idx)
+                        unknown_crops.append(sv.crop_image(frame, xyxy))
+                if len(unknown_crops) > 0:
+                    predicted_unknown = team_classifier.predict(unknown_crops).astype(int)
+                    for local_idx, predicted_team in zip(unknown_indices, predicted_unknown):
+                        assigned_team_ids[local_idx] = int(predicted_team)
+                        tracker_id = players_detections.tracker_id[local_idx]
+                        if tracker_id is not None:
+                            tracker_team_cache[int(tracker_id)] = int(predicted_team)
+                assigned_team_ids[assigned_team_ids < 0] = 0
+                players_detections.class_id = assigned_team_ids.astype(int)
             elif len(players_detections) > 0:
                 # Assign all to team 0 if no classifier
                 players_detections.class_id = np.zeros(len(players_detections), dtype=int)
@@ -259,16 +280,28 @@ def process_video_combined(source_video_path: str, target_video_path: str,
             result = PITCH_DETECTION_MODEL.infer(frame, confidence=CONFIDENCE_THRESHOLD)[0]
             key_points = sv.KeyPoints.from_inference(result)
 
-            # Filter keypoints by confidence
-            filter = key_points.confidence[0] > KEYPOINT_CONFIDENCE_THRESHOLD
-            frame_reference_points = key_points.xy[0][filter]
-            pitch_reference_points = np.array(CONFIG.vertices)[filter]
-
-            # Create view transformer
-            view_transformer = ViewTransformer(
-                source=frame_reference_points,
-                target=pitch_reference_points
-            )
+            view_transformer = None
+            if (
+                key_points.confidence is not None
+                and len(key_points.confidence) > 0
+                and key_points.xy is not None
+                and len(key_points.xy) > 0
+            ):
+                keypoint_filter = key_points.confidence[0] > KEYPOINT_CONFIDENCE_THRESHOLD
+                if np.count_nonzero(keypoint_filter) >= 4:
+                    frame_reference_points = key_points.xy[0][keypoint_filter]
+                    pitch_reference_points = np.array(CONFIG.vertices)[keypoint_filter]
+                    view_transformer = ViewTransformer(
+                        source=frame_reference_points,
+                        target=pitch_reference_points
+                    )
+                    last_view_transformer = view_transformer
+                    transform_stale_frames = 0
+            if view_transformer is None and last_view_transformer is not None and transform_stale_frames < MAX_TRANSFORM_STALE_FRAMES:
+                transform_stale_frames += 1
+                view_transformer = last_view_transformer
+            if view_transformer is None:
+                continue
 
             # Transform coordinates to pitch space
             frame_ball_xy = ball_detections.get_anchors_coordinates(sv.Position.BOTTOM_CENTER)

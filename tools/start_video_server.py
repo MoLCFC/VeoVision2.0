@@ -21,7 +21,7 @@ from dataclasses import dataclass, field, asdict
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -179,6 +179,7 @@ def _discover_bucket(bucket: str) -> Dict[str, Any]:
                 "hasStats": has_stats,
                 "isComplete": len(missing) == 0,
                 "missingOutputs": missing,
+                "canDelete": bucket == "uploaded",
                 "updatedAt": datetime.fromtimestamp(sample_file.stat().st_mtime).isoformat(),
             }
         )
@@ -513,6 +514,50 @@ class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         self._send_json(404, {"error": "Not found"})
+
+    def do_DELETE(self):
+        parsed = urlparse(self.path)
+        if parsed.path != "/api/clip":
+            self._send_json(404, {"error": "Not found"})
+            return
+
+        try:
+            query = parse_qs(parsed.query)
+            category = (query.get("category") or [""])[0]
+            clip_id = (query.get("id") or [""])[0]
+
+            if category != "uploaded":
+                self._send_json(403, {"error": "Only uploaded clips can be deleted."})
+                return
+            if not clip_id:
+                self._send_json(400, {"error": "Missing clip id."})
+                return
+            if _find_active_job_for_clip(category=category, clip_id=clip_id) is not None:
+                self._send_json(409, {"error": "Clip is currently processing. Wait for job completion before deleting."})
+                return
+
+            sample_path = CLIP_BUCKETS[category]["sample"] / f"{clip_id}.mp4"
+            outputs = _clip_outputs(category, clip_id)
+            removed_paths: List[str] = []
+
+            if sample_path.exists():
+                sample_path.unlink()
+                removed_paths.append(str(sample_path.relative_to(REPO_ROOT)).replace("\\", "/"))
+
+            for output_path in outputs.values():
+                if output_path.exists():
+                    output_path.unlink()
+                    removed_paths.append(str(output_path.relative_to(REPO_ROOT)).replace("\\", "/"))
+
+            # Remove stale jobs for deleted clip from in-memory list.
+            with JOBS_LOCK:
+                stale_ids = [job_id for job_id, job in JOBS.items() if job.category == category and job.clip_id == clip_id]
+                for stale_id in stale_ids:
+                    del JOBS[stale_id]
+
+            self._send_json(200, {"ok": True, "removed": removed_paths})
+        except Exception as exc:
+            self._send_json(500, {"error": str(exc)})
 
     def send_head(self):
         path = self.translate_path(self.path)

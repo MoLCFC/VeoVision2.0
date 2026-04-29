@@ -8,6 +8,7 @@ import os
 import sys
 import numpy as np
 import cv2
+from typing import Dict, Optional
 from tqdm import tqdm
 import supervision as sv
 from inference import get_model
@@ -173,6 +174,10 @@ def process_video(source_video_path: str, target_video_path: str,
     GOALKEEPER_ID = 1
     PLAYER_ID = 2
     REFEREE_ID = 3
+    MAX_TRANSFORM_STALE_FRAMES = 12
+    tracker_team_cache: Dict[int, int] = {}
+    last_view_transformer: Optional[ViewTransformer] = None
+    transform_stale_frames = 0
     
     with video_sink:
         for frame in tqdm(frame_generator, total=video_info.total_frames, desc="Processing frames"):
@@ -194,12 +199,30 @@ def process_video(source_video_path: str, target_video_path: str,
             goalkeepers_detections = all_detections[all_detections.class_id == GOALKEEPER_ID]
             referees_detections = all_detections[all_detections.class_id == REFEREE_ID]
             
-            players_crops = [sv.crop_image(frame, xyxy) for xyxy in players_detections.xyxy]
             if len(players_detections) > 0:
-                if team_classifier is None or len(players_crops) == 0:
+                if team_classifier is None:
                     players_detections.class_id = np.zeros(len(players_detections), dtype=int)
                 else:
-                    players_detections.class_id = team_classifier.predict(players_crops).astype(int)
+                    assigned_team_ids = np.full(len(players_detections), -1, dtype=int)
+                    unknown_indices = []
+                    unknown_crops = []
+                    for idx, (tracker_id, xyxy) in enumerate(zip(players_detections.tracker_id, players_detections.xyxy)):
+                        if tracker_id is not None and int(tracker_id) in tracker_team_cache:
+                            assigned_team_ids[idx] = tracker_team_cache[int(tracker_id)]
+                        else:
+                            unknown_indices.append(idx)
+                            unknown_crops.append(sv.crop_image(frame, xyxy))
+
+                    if len(unknown_crops) > 0:
+                        predicted_unknown = team_classifier.predict(unknown_crops).astype(int)
+                        for local_idx, predicted_team in zip(unknown_indices, predicted_unknown):
+                            assigned_team_ids[local_idx] = int(predicted_team)
+                            tracker_id = players_detections.tracker_id[local_idx]
+                            if tracker_id is not None:
+                                tracker_team_cache[int(tracker_id)] = int(predicted_team)
+
+                    assigned_team_ids[assigned_team_ids < 0] = 0
+                    players_detections.class_id = assigned_team_ids.astype(int)
 
             goalkeepers_detections.class_id = resolve_goalkeepers_team_id(
                 players_detections, goalkeepers_detections
@@ -243,10 +266,22 @@ def process_video(source_video_path: str, target_video_path: str,
                         source=pitch_reference_points,
                         target=frame_reference_points
                     )
+                    last_view_transformer = transformer
+                    transform_stale_frames = 0
 
                     pitch_all_points = np.array(CONFIG.vertices)
                     frame_all_points = transformer.transform_points(points=pitch_all_points)
                     frame_all_key_points = sv.KeyPoints(xy=frame_all_points[np.newaxis, ...])
+                elif last_view_transformer is not None and transform_stale_frames < MAX_TRANSFORM_STALE_FRAMES:
+                    transform_stale_frames += 1
+                    pitch_all_points = np.array(CONFIG.vertices)
+                    frame_all_points = last_view_transformer.transform_points(points=pitch_all_points)
+                    frame_all_key_points = sv.KeyPoints(xy=frame_all_points[np.newaxis, ...])
+            elif last_view_transformer is not None and transform_stale_frames < MAX_TRANSFORM_STALE_FRAMES:
+                transform_stale_frames += 1
+                pitch_all_points = np.array(CONFIG.vertices)
+                frame_all_points = last_view_transformer.transform_points(points=pitch_all_points)
+                frame_all_key_points = sv.KeyPoints(xy=frame_all_points[np.newaxis, ...])
             
             # Annotate frame with everything
             annotated_frame = frame.copy()

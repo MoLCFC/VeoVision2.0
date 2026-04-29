@@ -32,7 +32,7 @@ PITCH_DETECTION_MODEL_ID = "football-field-detection-f07vi/15"
 
 BALL_ID = 0
 MAXLEN = 5
-MAX_DISTANCE_THRESHOLD = 500
+MAX_DISTANCE_THRESHOLD = 280
 
 # ========================
 # UTILITY FUNCTIONS
@@ -63,6 +63,22 @@ def replace_outliers_based_on_distance(
     return cleaned_positions
 
 
+def select_ball_anchor(
+    anchors: np.ndarray,
+    confidences: np.ndarray,
+    previous_anchor: Union[np.ndarray, None],
+) -> np.ndarray:
+    if len(anchors) == 0:
+        return np.array([], dtype=np.float64)
+    if len(anchors) == 1:
+        return anchors[0]
+    if previous_anchor is None or len(previous_anchor) == 0:
+        return anchors[int(np.argmax(confidences))]
+    distances = np.linalg.norm(anchors - previous_anchor, axis=1)
+    score = distances - (confidences * 35.0)
+    return anchors[int(np.argmin(score))]
+
+
 # ========================
 # LOAD MODELS
 # ========================
@@ -90,6 +106,7 @@ frame_generator = sv.get_video_frames_generator(SOURCE_VIDEO_PATH)
 
 path_raw = []
 M = deque(maxlen=MAXLEN)
+last_ball_pitch_xy: Union[np.ndarray, None] = None
 
 print("Pass 1: Collecting ball trajectory...")
 for frame in tqdm(frame_generator, total=video_info.total_frames, desc="Tracking ball"):
@@ -102,19 +119,47 @@ for frame in tqdm(frame_generator, total=video_info.total_frames, desc="Tracking
     result = PITCH_DETECTION_MODEL.infer(frame, confidence=0.3)[0]
     key_points = sv.KeyPoints.from_inference(result)
 
-    filter = key_points.confidence[0] > 0.5
-    frame_reference_points = key_points.xy[0][filter]
-    pitch_reference_points = np.array(CONFIG.vertices)[filter]
+    if (
+        key_points.confidence is None
+        or len(key_points.confidence) == 0
+        or key_points.xy is None
+        or len(key_points.xy) == 0
+    ):
+        path_raw.append(np.empty((0, 2), dtype=np.float32))
+        continue
 
-    transformer = ViewTransformer(
-        source=frame_reference_points,
-        target=pitch_reference_points
-    )
+    keypoint_filter = key_points.confidence[0] > 0.5
+    if np.count_nonzero(keypoint_filter) < 4:
+        path_raw.append(np.empty((0, 2), dtype=np.float32))
+        continue
+
+    frame_reference_points = key_points.xy[0][keypoint_filter]
+    pitch_reference_points = np.array(CONFIG.vertices)[keypoint_filter]
+
+    try:
+        transformer = ViewTransformer(
+            source=frame_reference_points,
+            target=pitch_reference_points
+        )
+    except ValueError:
+        path_raw.append(np.empty((0, 2), dtype=np.float32))
+        continue
     M.append(transformer.m)
     transformer.m = np.mean(np.array(M), axis=0)
 
     frame_ball_xy = ball_detections.get_anchors_coordinates(sv.Position.BOTTOM_CENTER)
-    pitch_ball_xy = transformer.transform_points(points=frame_ball_xy)
+    if len(frame_ball_xy) == 0:
+        path_raw.append(np.empty((0, 2), dtype=np.float32))
+        continue
+    ball_confidences = ball_detections.confidence if ball_detections.confidence is not None else np.ones(len(frame_ball_xy), dtype=np.float32)
+    selected_frame_ball_xy = select_ball_anchor(
+        anchors=frame_ball_xy,
+        confidences=ball_confidences,
+        previous_anchor=last_ball_pitch_xy,
+    )
+    pitch_ball_xy = transformer.transform_points(points=np.array([selected_frame_ball_xy], dtype=np.float32))
+    if len(pitch_ball_xy) > 0:
+        last_ball_pitch_xy = pitch_ball_xy[0]
 
     path_raw.append(pitch_ball_xy)
 
@@ -130,6 +175,15 @@ path = [
 path = [coordinates.flatten() for coordinates in path]
 
 path = replace_outliers_based_on_distance(path, MAX_DISTANCE_THRESHOLD)
+smoothed_path: List[np.ndarray] = []
+smooth_window: deque[np.ndarray] = deque(maxlen=3)
+for point in path:
+    if len(point) == 0:
+        smoothed_path.append(point)
+        continue
+    smooth_window.append(point)
+    smoothed_path.append(np.mean(np.array(smooth_window), axis=0))
+path = smoothed_path
 
 valid_positions = len([p for p in path if len(p) > 0])
 print(f"Collected {valid_positions} valid ball positions out of {len(path)} frames")

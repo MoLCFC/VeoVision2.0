@@ -239,6 +239,9 @@ def collect_match_stats(
     player_stats: Dict[int, Dict[str, Any]] = {}
     events: List[Dict[str, Any]] = []
     timeline: List[Dict[str, Any]] = []
+    last_view_transformer: Optional[ViewTransformer] = None
+    transform_stale_frames = 0
+    max_transform_stale_frames = 12
 
     goal_y_min, goal_y_max = _goal_target_y_bounds(config)
     final_third_start = config.length * settings.attacking_third_ratio
@@ -249,6 +252,8 @@ def collect_match_stats(
     for frame_idx, frame in enumerate(
         tqdm(frame_generator, total=video_info.total_frames, desc="Analyzing frames")
     ):
+        frame_time_sec = round(_frame_to_time(frame_idx, video_info.fps), 3)
+        frame_time_label = _time_label(frame_time_sec)
         detection_result = player_model.infer(frame, confidence=settings.detection_confidence)[0]
         detections = sv.Detections.from_inference(detection_result)
 
@@ -297,19 +302,36 @@ def collect_match_stats(
 
         pitch_result = pitch_model.infer(frame, confidence=settings.detection_confidence)[0]
         key_points = sv.KeyPoints.from_inference(pitch_result)
-        keypoint_mask = key_points.confidence[0] > settings.keypoint_confidence_threshold
-
-        if np.count_nonzero(keypoint_mask) < 4:
-            continue
-
-        frame_reference_points = key_points.xy[0][keypoint_mask]
-        pitch_reference_points = np.array(config.vertices)[keypoint_mask]
-
-        try:
-            view_transformer = ViewTransformer(
-                source=frame_reference_points, target=pitch_reference_points
+        view_transformer: Optional[ViewTransformer] = None
+        if (
+            key_points.confidence is not None
+            and len(key_points.confidence) > 0
+            and key_points.xy is not None
+            and len(key_points.xy) > 0
+        ):
+            keypoint_mask = key_points.confidence[0] > settings.keypoint_confidence_threshold
+            if np.count_nonzero(keypoint_mask) >= 4:
+                frame_reference_points = key_points.xy[0][keypoint_mask]
+                pitch_reference_points = np.array(config.vertices)[keypoint_mask]
+                try:
+                    view_transformer = ViewTransformer(
+                        source=frame_reference_points, target=pitch_reference_points
+                    )
+                    last_view_transformer = view_transformer
+                    transform_stale_frames = 0
+                except ValueError:
+                    view_transformer = None
+        if (
+            view_transformer is None
+            and last_view_transformer is not None
+            and transform_stale_frames < max_transform_stale_frames
+        ):
+            transform_stale_frames += 1
+            view_transformer = last_view_transformer
+        if view_transformer is None:
+            timeline.append(
+                _snapshot_timeline_frame(frame_idx=frame_idx, fps=video_info.fps, team_stats=team_stats)
             )
-        except ValueError:
             continue
 
         frame_ball_xy = ball_detections.get_anchors_coordinates(sv.Position.BOTTOM_CENTER)
@@ -413,8 +435,8 @@ def collect_match_stats(
                         events.append(
                             {
                                 "frame": int(frame_idx),
-                                "time_sec": round(_frame_to_time(frame_idx, video_info.fps), 3),
-                                "time_label": _time_label(_frame_to_time(frame_idx, video_info.fps)),
+                                "time_sec": frame_time_sec,
+                                "time_label": frame_time_label,
                                 "event": "pass",
                                 "team": from_team,
                                 "from_tracker": int(from_player) if from_player is not None else None,
@@ -427,8 +449,8 @@ def collect_match_stats(
                         events.append(
                             {
                                 "frame": int(frame_idx),
-                                "time_sec": round(_frame_to_time(frame_idx, video_info.fps), 3),
-                                "time_label": _time_label(_frame_to_time(frame_idx, video_info.fps)),
+                                "time_sec": frame_time_sec,
+                                "time_label": frame_time_label,
                                 "event": "turnover",
                                 "team": from_team,
                                 "next_team": to_team,
@@ -484,8 +506,8 @@ def collect_match_stats(
 
                     shot_event: Dict[str, Any] = {
                         "frame": int(frame_idx),
-                        "time_sec": round(_frame_to_time(frame_idx, video_info.fps), 3),
-                        "time_label": _time_label(_frame_to_time(frame_idx, video_info.fps)),
+                        "time_sec": frame_time_sec,
+                        "time_label": frame_time_label,
                         "event": "shot",
                         "team": int(active_owner_team),
                         "tracker_id": int(active_owner_player) if active_owner_player is not None else None,

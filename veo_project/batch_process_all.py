@@ -132,20 +132,34 @@ def process_ball_tracking(source_path: str, target_path: str, roboflow_api_key: 
     
         result = PITCH_DETECTION_MODEL.infer(frame, confidence=0.3)[0]
         key_points = sv.KeyPoints.from_inference(result)
-    
-        filter = key_points.confidence[0] > 0.5
-        if np.count_nonzero(filter) < 4:
+
+        if (
+            key_points.confidence is None
+            or len(key_points.confidence) == 0
+            or key_points.xy is None
+            or len(key_points.xy) == 0
+        ):
             path_raw.append(np.empty((0, 2), dtype=np.float32))
             continue
-        frame_reference_points = key_points.xy[0][filter]
-        pitch_reference_points = np.array(CONFIG.vertices)[filter]
-    
-        transformer = ViewTransformer(
-            source=frame_reference_points,
-            target=pitch_reference_points
-        )
+
+        keypoint_filter = key_points.confidence[0] > 0.5
+        if np.count_nonzero(keypoint_filter) < 4:
+            path_raw.append(np.empty((0, 2), dtype=np.float32))
+            continue
+        frame_reference_points = key_points.xy[0][keypoint_filter]
+        pitch_reference_points = np.array(CONFIG.vertices)[keypoint_filter]
+
+        try:
+            transformer = ViewTransformer(
+                source=frame_reference_points,
+                target=pitch_reference_points
+            )
+        except ValueError:
+            path_raw.append(np.empty((0, 2), dtype=np.float32))
+            continue
         M.append(transformer.m)
-        transformer.m = np.mean(np.array(M), axis=0)
+        if len(M) > 0:
+            transformer.m = np.mean(np.array(M), axis=0)
     
         frame_ball_xy = ball_detections.get_anchors_coordinates(sv.Position.BOTTOM_CENTER)
         if len(frame_ball_xy) == 0:

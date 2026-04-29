@@ -12,6 +12,7 @@ const state = {
     statsPaths: null,
     jobsStreamConnected: false,
     lastSamplesRefreshMs: 0,
+    lastAutoReloadJobId: null,
 };
 
 const refs = {
@@ -168,6 +169,9 @@ function renderClipLibraries() {
         clips.forEach((clip) => {
             const card = document.createElement("article");
             card.className = "clip-card";
+            const deleteAction = category === "uploaded"
+                ? `<button class="btn btn-danger" data-action="delete">Delete</button>`
+                : "";
             card.innerHTML = `
                 <video preload="metadata" muted>
                     <source src="${resolveSamplePath(clip.sampleVideo)}" type="video/mp4">
@@ -178,12 +182,17 @@ function renderClipLibraries() {
                     <div class="clip-card-actions">
                         <button class="btn btn-secondary" data-action="open">Open Dashboard</button>
                         <button class="btn btn-accent" data-action="run">Run/Refresh Model</button>
+                        ${deleteAction}
                     </div>
                 </div>
             `;
 
             card.querySelector('[data-action="open"]').addEventListener("click", () => openClip(category, clip.id));
             card.querySelector('[data-action="run"]').addEventListener("click", () => runFullPipelineWithWarning(category, clip.id));
+            const deleteBtn = card.querySelector('[data-action="delete"]');
+            if (deleteBtn) {
+                deleteBtn.addEventListener("click", () => deleteUploadedClip(clip.id));
+            }
             targetGrid.appendChild(card);
         });
     });
@@ -357,8 +366,8 @@ function buildEventDetails(entry) {
 }
 
 function renderEmptyStats() {
-    refs.possessionTeam0.textContent = "0";
-    refs.possessionTeam1.textContent = "0";
+    refs.possessionTeam0.textContent = "0.0%";
+    refs.possessionTeam1.textContent = "0.0%";
     refs.passesTotal.textContent = "0";
     refs.shotsTotal.textContent = "0";
     refs.shotsOnTargetTotal.textContent = "0";
@@ -368,6 +377,7 @@ function renderEmptyStats() {
     refs.team1Breakdown.textContent = "-";
     refs.team0Insights.textContent = "No data";
     refs.team1Insights.textContent = "No data";
+    updatePossessionVisualState(0, 0);
     refs.eventsBody.innerHTML = `<tr><td>--:--</td><td>Info</td><td>System</td><td>No stats file found for this clip.</td></tr>`;
 }
 
@@ -383,8 +393,8 @@ function renderStatsAtCurrentTime() {
     const t1 = state.statsFinal.team_1 || {};
     const values = getLiveValuesFromTime(current, duration, t0, t1);
 
-    refs.possessionTeam0.textContent = values.t0Poss.toFixed(1);
-    refs.possessionTeam1.textContent = values.t1Poss.toFixed(1);
+    refs.possessionTeam0.textContent = `${values.t0Poss.toFixed(1)}%`;
+    refs.possessionTeam1.textContent = `${values.t1Poss.toFixed(1)}%`;
     refs.passesTotal.textContent = String(values.t0Pass + values.t1Pass);
     refs.shotsTotal.textContent = String(values.t0Shot + values.t1Shot);
     refs.shotsOnTargetTotal.textContent = String(values.t0Sot + values.t1Sot);
@@ -392,7 +402,18 @@ function renderStatsAtCurrentTime() {
     refs.interceptionsTotal.textContent = String(values.t0Int + values.t1Int);
     refs.team0Breakdown.textContent = `Passes ${values.t0Pass} | Shots ${values.t0Shot} | Goals ${values.t0Goal}`;
     refs.team1Breakdown.textContent = `Passes ${values.t1Pass} | Shots ${values.t1Shot} | Goals ${values.t1Goal}`;
+    updatePossessionVisualState(values.t0Poss, values.t1Poss);
     renderPlayerInsights();
+}
+
+function updatePossessionVisualState(team0Poss, team1Poss) {
+    refs.possessionTeam0.classList.remove("leading");
+    refs.possessionTeam1.classList.remove("leading");
+    if (team0Poss > team1Poss) {
+        refs.possessionTeam0.classList.add("leading");
+    } else if (team1Poss > team0Poss) {
+        refs.possessionTeam1.classList.add("leading");
+    }
 }
 
 function getLiveValuesFromTime(current, duration, t0, t1) {
@@ -642,6 +663,54 @@ async function uploadAndRun(event) {
     }
 }
 
+async function deleteUploadedClip(clipId) {
+    const hasActive = hasActiveJobForClip("uploaded", clipId);
+    if (hasActive) {
+        alert("This uploaded clip is currently processing. Wait for completion before deleting.");
+        return;
+    }
+    const confirmed = window.confirm(
+        "Delete this uploaded clip and all its generated outputs (main, 2D, heatmap, ball, stats)? This cannot be undone.",
+    );
+    if (!confirmed) return;
+
+    try {
+        const response = await fetch(`/api/clip?category=uploaded&id=${encodeURIComponent(clipId)}`, {
+            method: "DELETE",
+        });
+        const payload = await response.json();
+        if (!response.ok) {
+            alert(payload.error || "Failed to delete uploaded clip.");
+            return;
+        }
+        if (
+            state.activeClip
+            && state.activeClip.category === "uploaded"
+            && state.activeClip.clipId === clipId
+        ) {
+            state.activeClip = null;
+            state.statsFinal = null;
+            state.statsTimeline = null;
+            state.events = [];
+            refs.activeClipLabel.textContent = "Pick a clip from Regular, Famous, or Uploaded sections";
+            [refs.mainVideo, refs.pitch2dVideo, refs.heatmapVideo, refs.ballVideo].forEach((videoEl) => {
+                videoEl.pause();
+                videoEl.removeAttribute("src");
+                videoEl.load();
+            });
+            refs.mainFallback.style.display = "block";
+            refs.pitch2dFallback.style.display = "block";
+            refs.heatmapFallback.style.display = "block";
+            refs.ballFallback.style.display = "block";
+            renderEmptyStats();
+        }
+        refreshSamples();
+    } catch (error) {
+        console.error(error);
+        alert("Delete request failed.");
+    }
+}
+
 async function pollJobs(immediate = false) {
     if (state.jobsStreamConnected) return;
     try {
@@ -668,6 +737,7 @@ function connectJobsStream() {
             state.jobs = payload.jobs || [];
             state.jobsStreamConnected = true;
             renderJobs();
+            maybeAutoReloadActiveClipAfterJobDone();
             const now = Date.now();
             if (now - state.lastSamplesRefreshMs > 2500) {
                 state.lastSamplesRefreshMs = now;
@@ -680,6 +750,19 @@ function connectJobsStream() {
     } catch (_err) {
         state.jobsStreamConnected = false;
     }
+}
+
+function maybeAutoReloadActiveClipAfterJobDone() {
+    if (!state.activeClip) return;
+    const relatedJobs = (state.jobs || [])
+        .filter((job) => job.category === state.activeClip.category && job.clip_id === state.activeClip.clipId)
+        .sort((a, b) => (a.ended_at || "").localeCompare(b.ended_at || ""));
+    if (!relatedJobs.length) return;
+    const latest = relatedJobs[relatedJobs.length - 1];
+    if (latest.status !== "done") return;
+    if (state.lastAutoReloadJobId === latest.id) return;
+    state.lastAutoReloadJobId = latest.id;
+    openClip(state.activeClip.category, state.activeClip.clipId);
 }
 
 function renderJobs() {
@@ -698,7 +781,7 @@ function renderJobs() {
                 <strong>${job.clip_id}</strong>
                 <span>(${job.category})</span>
             </div>
-            <div class="job-meta">${job.status.toUpperCase()} - ${job.stage} - ${job.progress}%</div>
+            <div class="job-meta">${job.status.toUpperCase()} - ${job.stage} - ${job.progress}% - mode: ${job.run_mode || "full"}</div>
             <div class="job-message">${job.message || ""}</div>
         `;
         refs.jobsList.appendChild(item);

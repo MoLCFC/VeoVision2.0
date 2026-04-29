@@ -9,6 +9,7 @@ import os
 import sys
 import numpy as np
 import cv2
+from typing import Dict, Optional
 from tqdm import tqdm
 import supervision as sv
 from inference import get_model
@@ -62,10 +63,21 @@ def resolve_goalkeepers_team_id(players: sv.Detections, goalkeepers: sv.Detectio
     Returns:
         Array of team IDs for goalkeepers
     """
+    if len(goalkeepers) == 0:
+        return np.array([], dtype=int)
+    if len(players) == 0:
+        return np.zeros(len(goalkeepers), dtype=int)
+
     goalkeepers_xy = goalkeepers.get_anchors_coordinates(sv.Position.BOTTOM_CENTER)
     players_xy = players.get_anchors_coordinates(sv.Position.BOTTOM_CENTER)
-    team_0_centroid = players_xy[players.class_id == 0].mean(axis=0)
-    team_1_centroid = players_xy[players.class_id == 1].mean(axis=0)
+    team_0_players = players_xy[players.class_id == 0]
+    team_1_players = players_xy[players.class_id == 1]
+    if len(team_0_players) == 0:
+        return np.ones(len(goalkeepers), dtype=int)
+    if len(team_1_players) == 0:
+        return np.zeros(len(goalkeepers), dtype=int)
+    team_0_centroid = team_0_players.mean(axis=0)
+    team_1_centroid = team_1_players.mean(axis=0)
     goalkeepers_team_id = []
     
     for goalkeeper_xy in goalkeepers_xy:
@@ -73,7 +85,7 @@ def resolve_goalkeepers_team_id(players: sv.Detections, goalkeepers: sv.Detectio
         dist_1 = np.linalg.norm(goalkeeper_xy - team_1_centroid)
         goalkeepers_team_id.append(0 if dist_0 < dist_1 else 1)
 
-    return np.array(goalkeepers_team_id)
+    return np.array(goalkeepers_team_id, dtype=int)
 
 
 def process_video_2d_pitch(source_video_path: str, target_video_path: str, 
@@ -110,8 +122,10 @@ def process_video_2d_pitch(source_video_path: str, target_video_path: str,
     # Extract crops and train team classifier
     print("Training team classifier...")
     crops = extract_crops(source_video_path, PLAYER_DETECTION_MODEL)
-    team_classifier = TeamClassifier()
-    team_classifier.fit(crops)
+    team_classifier = None
+    if len(crops) > 0:
+        team_classifier = TeamClassifier()
+        team_classifier.fit(crops)
     
     # Video processing setup
     print("Processing video and generating 2D pitch view...")
@@ -127,6 +141,10 @@ def process_video_2d_pitch(source_video_path: str, target_video_path: str,
     
     # Track last known ball position for possession calculation
     last_known_ball_position = None
+    tracker_team_cache: Dict[int, int] = {}
+    last_view_transformer: Optional[ViewTransformer] = None
+    transform_stale_frames = 0
+    MAX_TRANSFORM_STALE_FRAMES = 12
     
     with video_sink:
         for frame in tqdm(frame_generator, total=video_info.total_frames, desc="Processing frames"):
@@ -148,8 +166,30 @@ def process_video_2d_pitch(source_video_path: str, target_video_path: str,
             goalkeepers_detections = all_detections[all_detections.class_id == GOALKEEPER_ID]
             referees_detections = all_detections[all_detections.class_id == REFEREE_ID]
             
-            players_crops = [sv.crop_image(frame, xyxy) for xyxy in players_detections.xyxy]
-            players_detections.class_id = team_classifier.predict(players_crops).astype(int)
+            if len(players_detections) > 0:
+                if team_classifier is None:
+                    players_detections.class_id = np.zeros(len(players_detections), dtype=int)
+                else:
+                    assigned_team_ids = np.full(len(players_detections), -1, dtype=int)
+                    unknown_indices = []
+                    unknown_crops = []
+                    for idx, (tracker_id, xyxy) in enumerate(zip(players_detections.tracker_id, players_detections.xyxy)):
+                        if tracker_id is not None and int(tracker_id) in tracker_team_cache:
+                            assigned_team_ids[idx] = tracker_team_cache[int(tracker_id)]
+                        else:
+                            unknown_indices.append(idx)
+                            unknown_crops.append(sv.crop_image(frame, xyxy))
+
+                    if len(unknown_crops) > 0:
+                        predicted_unknown = team_classifier.predict(unknown_crops).astype(int)
+                        for local_idx, predicted_team in zip(unknown_indices, predicted_unknown):
+                            assigned_team_ids[local_idx] = int(predicted_team)
+                            tracker_id = players_detections.tracker_id[local_idx]
+                            if tracker_id is not None:
+                                tracker_team_cache[int(tracker_id)] = int(predicted_team)
+
+                    assigned_team_ids[assigned_team_ids < 0] = 0
+                    players_detections.class_id = assigned_team_ids.astype(int)
 
             goalkeepers_detections.class_id = resolve_goalkeepers_team_id(
                 players_detections, goalkeepers_detections
@@ -158,19 +198,28 @@ def process_video_2d_pitch(source_video_path: str, target_video_path: str,
             # Pitch detection and transformation
             result = PITCH_DETECTION_MODEL.infer(frame, confidence=0.3)[0]
             key_points = sv.KeyPoints.from_inference(result)
-
-            filter_mask = key_points.confidence[0] > 0.5
-            frame_reference_points = key_points.xy[0][filter_mask]
-            frame_reference_key_points = sv.KeyPoints(
-                xy=frame_reference_points[np.newaxis, ...]
-            )
-
-            pitch_reference_points = np.array(CONFIG.vertices)[filter_mask]
-
-            view_transformer = ViewTransformer(
-                source=frame_reference_points,
-                target=pitch_reference_points
-            )
+            view_transformer = None
+            if (
+                key_points.confidence is not None
+                and len(key_points.confidence) > 0
+                and key_points.xy is not None
+                and len(key_points.xy) > 0
+            ):
+                filter_mask = key_points.confidence[0] > 0.5
+                if np.count_nonzero(filter_mask) >= 4:
+                    frame_reference_points = key_points.xy[0][filter_mask]
+                    pitch_reference_points = np.array(CONFIG.vertices)[filter_mask]
+                    view_transformer = ViewTransformer(
+                        source=frame_reference_points,
+                        target=pitch_reference_points
+                    )
+                    last_view_transformer = view_transformer
+                    transform_stale_frames = 0
+            if view_transformer is None and last_view_transformer is not None and transform_stale_frames < MAX_TRANSFORM_STALE_FRAMES:
+                transform_stale_frames += 1
+                view_transformer = last_view_transformer
+            if view_transformer is None:
+                continue
 
             # Transform ball coordinates
             frame_ball_xy = ball_detections.get_anchors_coordinates(sv.Position.BOTTOM_CENTER)
@@ -211,7 +260,7 @@ def process_video_2d_pitch(source_video_path: str, target_video_path: str,
                 
                 if len(all_player_positions) > 0:
                     all_player_positions = np.array(all_player_positions)
-                    all_tracker_ids = np.array(all_tracker_ids)
+                    all_tracker_ids = np.array(all_tracker_ids, dtype=object)
                     
                     # Calculate distances from last known ball position to all players
                     distances = np.linalg.norm(all_player_positions - last_known_ball_position, axis=1)
