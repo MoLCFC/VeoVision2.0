@@ -1,0 +1,6805 @@
+{
+  "source_video": "C:\\Users\\elasm\\VeoVision2.0\\VeoVision2.0\\uploaded_clips\\sample_content\\yamal_goal_vs_madrid_1_uploaded_20260515_204210.mp4",
+  "total_frames": 300,
+  "fps": 30.0,
+  "heuristics_note": "These are estimated event stats derived from detections/tracking and homography. Shot-related metrics are heuristic, not referee-grade labels.",
+  "events": [
+    {
+      "frame": 108,
+      "time_sec": 3.6,
+      "time_label": "00:03",
+      "event": "turnover",
+      "team": 1,
+      "next_team": 0,
+      "from_tracker": 6,
+      "to_tracker": 14
+    },
+    {
+      "frame": 201,
+      "time_sec": 6.7,
+      "time_label": "00:06",
+      "event": "turnover",
+      "team": 0,
+      "next_team": 1,
+      "from_tracker": 14,
+      "to_tracker": 18
+    },
+    {
+      "frame": 206,
+      "time_sec": 6.867,
+      "time_label": "00:06",
+      "event": "shot",
+      "team": 1,
+      "tracker_id": 18,
+      "on_target": false,
+      "is_goal": false
+    },
+    {
+      "frame": 229,
+      "time_sec": 7.633,
+      "time_label": "00:07",
+      "event": "turnover",
+      "team": 1,
+      "next_team": 0,
+      "from_tracker": 18,
+      "to_tracker": 43
+    },
+    {
+      "frame": 249,
+      "time_sec": 8.3,
+      "time_label": "00:08",
+      "event": "turnover",
+      "team": 1,
+      "next_team": 0,
+      "from_tracker": 18,
+      "to_tracker": 43
+    },
+    {
+      "frame": 259,
+      "time_sec": 8.633,
+      "time_label": "00:08",
+      "event": "turnover",
+      "team": 0,
+      "next_team": 1,
+      "from_tracker": 43,
+      "to_tracker": 18
+    },
+    {
+      "frame": 268,
+      "time_sec": 8.933,
+      "time_label": "00:08",
+      "event": "turnover",
+      "team": 1,
+      "next_team": 0,
+      "from_tracker": 18,
+      "to_tracker": 56
+    },
+    {
+      "frame": 273,
+      "time_sec": 9.1,
+      "time_label": "00:09",
+      "event": "turnover",
+      "team": 0,
+      "next_team": 1,
+      "from_tracker": 56,
+      "to_tracker": 7
+    }
+  ],
+  "timeline": [
+    {
+      "frame": 0,
+      "time_sec": 0.0,
+      "team_0": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 1,
+      "time_sec": 0.033,
+      "team_0": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 2,
+      "time_sec": 0.067,
+      "team_0": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 3,
+      "time_sec": 0.1,
+      "team_0": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 4,
+      "time_sec": 0.133,
+      "team_0": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 5,
+      "time_sec": 0.167,
+      "team_0": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 6,
+      "time_sec": 0.2,
+      "team_0": {
+        "possession_frames": 1,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 7,
+      "time_sec": 0.233,
+      "team_0": {
+        "possession_frames": 2,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 8,
+      "time_sec": 0.267,
+      "team_0": {
+        "possession_frames": 3,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 9,
+      "time_sec": 0.3,
+      "team_0": {
+        "possession_frames": 4,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 10,
+      "time_sec": 0.333,
+      "team_0": {
+        "possession_frames": 5,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 11,
+      "time_sec": 0.367,
+      "team_0": {
+        "possession_frames": 6,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 12,
+      "time_sec": 0.4,
+      "team_0": {
+        "possession_frames": 7,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 13,
+      "time_sec": 0.433,
+      "team_0": {
+        "possession_frames": 8,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 14,
+      "time_sec": 0.467,
+      "team_0": {
+        "possession_frames": 9,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 15,
+      "time_sec": 0.5,
+      "team_0": {
+        "possession_frames": 10,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 16,
+      "time_sec": 0.533,
+      "team_0": {
+        "possession_frames": 11,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 17,
+      "time_sec": 0.567,
+      "team_0": {
+        "possession_frames": 12,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 18,
+      "time_sec": 0.6,
+      "team_0": {
+        "possession_frames": 13,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 19,
+      "time_sec": 0.633,
+      "team_0": {
+        "possession_frames": 14,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 20,
+      "time_sec": 0.667,
+      "team_0": {
+        "possession_frames": 15,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 21,
+      "time_sec": 0.7,
+      "team_0": {
+        "possession_frames": 16,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 22,
+      "time_sec": 0.733,
+      "team_0": {
+        "possession_frames": 17,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 23,
+      "time_sec": 0.767,
+      "team_0": {
+        "possession_frames": 18,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 24,
+      "time_sec": 0.8,
+      "team_0": {
+        "possession_frames": 19,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 25,
+      "time_sec": 0.833,
+      "team_0": {
+        "possession_frames": 20,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 26,
+      "time_sec": 0.867,
+      "team_0": {
+        "possession_frames": 21,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 27,
+      "time_sec": 0.9,
+      "team_0": {
+        "possession_frames": 22,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 28,
+      "time_sec": 0.933,
+      "team_0": {
+        "possession_frames": 23,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 29,
+      "time_sec": 0.967,
+      "team_0": {
+        "possession_frames": 24,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 30,
+      "time_sec": 1.0,
+      "team_0": {
+        "possession_frames": 25,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 31,
+      "time_sec": 1.033,
+      "team_0": {
+        "possession_frames": 26,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 32,
+      "time_sec": 1.067,
+      "team_0": {
+        "possession_frames": 27,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 33,
+      "time_sec": 1.1,
+      "team_0": {
+        "possession_frames": 28,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 34,
+      "time_sec": 1.133,
+      "team_0": {
+        "possession_frames": 29,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 35,
+      "time_sec": 1.167,
+      "team_0": {
+        "possession_frames": 30,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 36,
+      "time_sec": 1.2,
+      "team_0": {
+        "possession_frames": 31,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 37,
+      "time_sec": 1.233,
+      "team_0": {
+        "possession_frames": 32,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 38,
+      "time_sec": 1.267,
+      "team_0": {
+        "possession_frames": 33,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 39,
+      "time_sec": 1.3,
+      "team_0": {
+        "possession_frames": 34,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 40,
+      "time_sec": 1.333,
+      "team_0": {
+        "possession_frames": 35,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 41,
+      "time_sec": 1.367,
+      "team_0": {
+        "possession_frames": 36,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 42,
+      "time_sec": 1.4,
+      "team_0": {
+        "possession_frames": 37,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 43,
+      "time_sec": 1.433,
+      "team_0": {
+        "possession_frames": 38,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 44,
+      "time_sec": 1.467,
+      "team_0": {
+        "possession_frames": 39,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 45,
+      "time_sec": 1.5,
+      "team_0": {
+        "possession_frames": 40,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 46,
+      "time_sec": 1.533,
+      "team_0": {
+        "possession_frames": 41,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 47,
+      "time_sec": 1.567,
+      "team_0": {
+        "possession_frames": 42,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 48,
+      "time_sec": 1.6,
+      "team_0": {
+        "possession_frames": 43,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 49,
+      "time_sec": 1.633,
+      "team_0": {
+        "possession_frames": 44,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 50,
+      "time_sec": 1.667,
+      "team_0": {
+        "possession_frames": 45,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 51,
+      "time_sec": 1.7,
+      "team_0": {
+        "possession_frames": 46,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 52,
+      "time_sec": 1.733,
+      "team_0": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 53,
+      "time_sec": 1.767,
+      "team_0": {
+        "possession_frames": 48,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 54,
+      "time_sec": 1.8,
+      "team_0": {
+        "possession_frames": 49,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 55,
+      "time_sec": 1.833,
+      "team_0": {
+        "possession_frames": 50,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 56,
+      "time_sec": 1.867,
+      "team_0": {
+        "possession_frames": 51,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 57,
+      "time_sec": 1.9,
+      "team_0": {
+        "possession_frames": 52,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 58,
+      "time_sec": 1.933,
+      "team_0": {
+        "possession_frames": 53,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 59,
+      "time_sec": 1.967,
+      "team_0": {
+        "possession_frames": 54,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 60,
+      "time_sec": 2.0,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 0,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 61,
+      "time_sec": 2.033,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 1,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 62,
+      "time_sec": 2.067,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 2,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 63,
+      "time_sec": 2.1,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 3,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 64,
+      "time_sec": 2.133,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 4,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 65,
+      "time_sec": 2.167,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 5,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 66,
+      "time_sec": 2.2,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 6,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 67,
+      "time_sec": 2.233,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 7,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 68,
+      "time_sec": 2.267,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 8,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 69,
+      "time_sec": 2.3,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 9,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 70,
+      "time_sec": 2.333,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 10,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 71,
+      "time_sec": 2.367,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 11,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 72,
+      "time_sec": 2.4,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 12,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 73,
+      "time_sec": 2.433,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 13,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 74,
+      "time_sec": 2.467,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 14,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 75,
+      "time_sec": 2.5,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 15,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 76,
+      "time_sec": 2.533,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 16,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 77,
+      "time_sec": 2.567,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 17,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 78,
+      "time_sec": 2.6,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 18,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 79,
+      "time_sec": 2.633,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 19,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 80,
+      "time_sec": 2.667,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 20,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 81,
+      "time_sec": 2.7,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 21,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 82,
+      "time_sec": 2.733,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 22,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 83,
+      "time_sec": 2.767,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 23,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 84,
+      "time_sec": 2.8,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 24,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 85,
+      "time_sec": 2.833,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 25,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 86,
+      "time_sec": 2.867,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 26,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 87,
+      "time_sec": 2.9,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 27,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 88,
+      "time_sec": 2.933,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 28,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 89,
+      "time_sec": 2.967,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 29,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 90,
+      "time_sec": 3.0,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 30,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 91,
+      "time_sec": 3.033,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 31,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 92,
+      "time_sec": 3.067,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 32,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 93,
+      "time_sec": 3.1,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 33,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 94,
+      "time_sec": 3.133,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 34,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 95,
+      "time_sec": 3.167,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 35,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 96,
+      "time_sec": 3.2,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 36,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 97,
+      "time_sec": 3.233,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 37,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 98,
+      "time_sec": 3.267,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 38,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 99,
+      "time_sec": 3.3,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 39,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 100,
+      "time_sec": 3.333,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 40,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 101,
+      "time_sec": 3.367,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 41,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 102,
+      "time_sec": 3.4,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 42,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 103,
+      "time_sec": 3.433,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 43,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 104,
+      "time_sec": 3.467,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 44,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 105,
+      "time_sec": 3.5,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 45,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 106,
+      "time_sec": 3.533,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 46,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 107,
+      "time_sec": 3.567,
+      "team_0": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 108,
+      "time_sec": 3.6,
+      "team_0": {
+        "possession_frames": 56,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 109,
+      "time_sec": 3.633,
+      "team_0": {
+        "possession_frames": 57,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 110,
+      "time_sec": 3.667,
+      "team_0": {
+        "possession_frames": 58,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 111,
+      "time_sec": 3.7,
+      "team_0": {
+        "possession_frames": 59,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 112,
+      "time_sec": 3.733,
+      "team_0": {
+        "possession_frames": 60,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 113,
+      "time_sec": 3.767,
+      "team_0": {
+        "possession_frames": 61,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 114,
+      "time_sec": 3.8,
+      "team_0": {
+        "possession_frames": 62,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 115,
+      "time_sec": 3.833,
+      "team_0": {
+        "possession_frames": 63,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 116,
+      "time_sec": 3.867,
+      "team_0": {
+        "possession_frames": 64,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 117,
+      "time_sec": 3.9,
+      "team_0": {
+        "possession_frames": 65,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 118,
+      "time_sec": 3.933,
+      "team_0": {
+        "possession_frames": 66,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 119,
+      "time_sec": 3.967,
+      "team_0": {
+        "possession_frames": 67,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 120,
+      "time_sec": 4.0,
+      "team_0": {
+        "possession_frames": 68,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 121,
+      "time_sec": 4.033,
+      "team_0": {
+        "possession_frames": 69,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 122,
+      "time_sec": 4.067,
+      "team_0": {
+        "possession_frames": 70,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 123,
+      "time_sec": 4.1,
+      "team_0": {
+        "possession_frames": 71,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 124,
+      "time_sec": 4.133,
+      "team_0": {
+        "possession_frames": 72,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 125,
+      "time_sec": 4.167,
+      "team_0": {
+        "possession_frames": 73,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 126,
+      "time_sec": 4.2,
+      "team_0": {
+        "possession_frames": 74,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 127,
+      "time_sec": 4.233,
+      "team_0": {
+        "possession_frames": 75,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 128,
+      "time_sec": 4.267,
+      "team_0": {
+        "possession_frames": 76,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 129,
+      "time_sec": 4.3,
+      "team_0": {
+        "possession_frames": 77,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 130,
+      "time_sec": 4.333,
+      "team_0": {
+        "possession_frames": 78,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 131,
+      "time_sec": 4.367,
+      "team_0": {
+        "possession_frames": 79,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 132,
+      "time_sec": 4.4,
+      "team_0": {
+        "possession_frames": 80,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 133,
+      "time_sec": 4.433,
+      "team_0": {
+        "possession_frames": 81,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 134,
+      "time_sec": 4.467,
+      "team_0": {
+        "possession_frames": 82,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 135,
+      "time_sec": 4.5,
+      "team_0": {
+        "possession_frames": 83,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 136,
+      "time_sec": 4.533,
+      "team_0": {
+        "possession_frames": 84,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 137,
+      "time_sec": 4.567,
+      "team_0": {
+        "possession_frames": 85,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 138,
+      "time_sec": 4.6,
+      "team_0": {
+        "possession_frames": 86,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 139,
+      "time_sec": 4.633,
+      "team_0": {
+        "possession_frames": 87,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 140,
+      "time_sec": 4.667,
+      "team_0": {
+        "possession_frames": 88,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 141,
+      "time_sec": 4.7,
+      "team_0": {
+        "possession_frames": 89,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 142,
+      "time_sec": 4.733,
+      "team_0": {
+        "possession_frames": 90,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 143,
+      "time_sec": 4.767,
+      "team_0": {
+        "possession_frames": 91,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 144,
+      "time_sec": 4.8,
+      "team_0": {
+        "possession_frames": 92,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 145,
+      "time_sec": 4.833,
+      "team_0": {
+        "possession_frames": 93,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 146,
+      "time_sec": 4.867,
+      "team_0": {
+        "possession_frames": 94,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 147,
+      "time_sec": 4.9,
+      "team_0": {
+        "possession_frames": 95,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 148,
+      "time_sec": 4.933,
+      "team_0": {
+        "possession_frames": 96,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 149,
+      "time_sec": 4.967,
+      "team_0": {
+        "possession_frames": 97,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 150,
+      "time_sec": 5.0,
+      "team_0": {
+        "possession_frames": 98,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 151,
+      "time_sec": 5.033,
+      "team_0": {
+        "possession_frames": 99,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 152,
+      "time_sec": 5.067,
+      "team_0": {
+        "possession_frames": 100,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 153,
+      "time_sec": 5.1,
+      "team_0": {
+        "possession_frames": 101,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 154,
+      "time_sec": 5.133,
+      "team_0": {
+        "possession_frames": 102,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 155,
+      "time_sec": 5.167,
+      "team_0": {
+        "possession_frames": 103,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 156,
+      "time_sec": 5.2,
+      "team_0": {
+        "possession_frames": 104,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 157,
+      "time_sec": 5.233,
+      "team_0": {
+        "possession_frames": 105,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 158,
+      "time_sec": 5.267,
+      "team_0": {
+        "possession_frames": 106,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 159,
+      "time_sec": 5.3,
+      "team_0": {
+        "possession_frames": 107,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 160,
+      "time_sec": 5.333,
+      "team_0": {
+        "possession_frames": 108,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 161,
+      "time_sec": 5.367,
+      "team_0": {
+        "possession_frames": 109,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 162,
+      "time_sec": 5.4,
+      "team_0": {
+        "possession_frames": 110,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 163,
+      "time_sec": 5.433,
+      "team_0": {
+        "possession_frames": 111,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 164,
+      "time_sec": 5.467,
+      "team_0": {
+        "possession_frames": 112,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 165,
+      "time_sec": 5.5,
+      "team_0": {
+        "possession_frames": 113,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 166,
+      "time_sec": 5.533,
+      "team_0": {
+        "possession_frames": 114,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 167,
+      "time_sec": 5.567,
+      "team_0": {
+        "possession_frames": 115,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 168,
+      "time_sec": 5.6,
+      "team_0": {
+        "possession_frames": 116,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 169,
+      "time_sec": 5.633,
+      "team_0": {
+        "possession_frames": 117,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 170,
+      "time_sec": 5.667,
+      "team_0": {
+        "possession_frames": 118,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 171,
+      "time_sec": 5.7,
+      "team_0": {
+        "possession_frames": 119,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 172,
+      "time_sec": 5.733,
+      "team_0": {
+        "possession_frames": 120,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 173,
+      "time_sec": 5.767,
+      "team_0": {
+        "possession_frames": 121,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 174,
+      "time_sec": 5.8,
+      "team_0": {
+        "possession_frames": 122,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 175,
+      "time_sec": 5.833,
+      "team_0": {
+        "possession_frames": 123,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 176,
+      "time_sec": 5.867,
+      "team_0": {
+        "possession_frames": 124,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 177,
+      "time_sec": 5.9,
+      "team_0": {
+        "possession_frames": 125,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 178,
+      "time_sec": 5.933,
+      "team_0": {
+        "possession_frames": 126,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 179,
+      "time_sec": 5.967,
+      "team_0": {
+        "possession_frames": 127,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 180,
+      "time_sec": 6.0,
+      "team_0": {
+        "possession_frames": 128,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 181,
+      "time_sec": 6.033,
+      "team_0": {
+        "possession_frames": 129,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 182,
+      "time_sec": 6.067,
+      "team_0": {
+        "possession_frames": 129,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 183,
+      "time_sec": 6.1,
+      "team_0": {
+        "possession_frames": 129,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 184,
+      "time_sec": 6.133,
+      "team_0": {
+        "possession_frames": 129,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 185,
+      "time_sec": 6.167,
+      "team_0": {
+        "possession_frames": 129,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 186,
+      "time_sec": 6.2,
+      "team_0": {
+        "possession_frames": 129,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 187,
+      "time_sec": 6.233,
+      "team_0": {
+        "possession_frames": 129,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 188,
+      "time_sec": 6.267,
+      "team_0": {
+        "possession_frames": 129,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 189,
+      "time_sec": 6.3,
+      "team_0": {
+        "possession_frames": 130,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 190,
+      "time_sec": 6.333,
+      "team_0": {
+        "possession_frames": 131,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 191,
+      "time_sec": 6.367,
+      "team_0": {
+        "possession_frames": 132,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 192,
+      "time_sec": 6.4,
+      "team_0": {
+        "possession_frames": 133,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 193,
+      "time_sec": 6.433,
+      "team_0": {
+        "possession_frames": 134,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 194,
+      "time_sec": 6.467,
+      "team_0": {
+        "possession_frames": 135,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 195,
+      "time_sec": 6.5,
+      "team_0": {
+        "possession_frames": 136,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 196,
+      "time_sec": 6.533,
+      "team_0": {
+        "possession_frames": 137,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 197,
+      "time_sec": 6.567,
+      "team_0": {
+        "possession_frames": 138,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 198,
+      "time_sec": 6.6,
+      "team_0": {
+        "possession_frames": 139,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 199,
+      "time_sec": 6.633,
+      "team_0": {
+        "possession_frames": 140,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 200,
+      "time_sec": 6.667,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 0,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 47,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 0,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 201,
+      "time_sec": 6.7,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 48,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 202,
+      "time_sec": 6.733,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 49,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 203,
+      "time_sec": 6.767,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 50,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 204,
+      "time_sec": 6.8,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 51,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 205,
+      "time_sec": 6.833,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 52,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 206,
+      "time_sec": 6.867,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 53,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 207,
+      "time_sec": 6.9,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 54,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 208,
+      "time_sec": 6.933,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 55,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 209,
+      "time_sec": 6.967,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 56,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 210,
+      "time_sec": 7.0,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 57,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 211,
+      "time_sec": 7.033,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 58,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 212,
+      "time_sec": 7.067,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 59,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 213,
+      "time_sec": 7.1,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 60,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 214,
+      "time_sec": 7.133,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 61,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 215,
+      "time_sec": 7.167,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 62,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 216,
+      "time_sec": 7.2,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 63,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 217,
+      "time_sec": 7.233,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 64,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 218,
+      "time_sec": 7.267,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 65,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 219,
+      "time_sec": 7.3,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 66,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 220,
+      "time_sec": 7.333,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 67,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 221,
+      "time_sec": 7.367,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 68,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 222,
+      "time_sec": 7.4,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 69,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 223,
+      "time_sec": 7.433,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 70,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 224,
+      "time_sec": 7.467,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 71,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 225,
+      "time_sec": 7.5,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 72,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 226,
+      "time_sec": 7.533,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 73,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 227,
+      "time_sec": 7.567,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 74,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 228,
+      "time_sec": 7.6,
+      "team_0": {
+        "possession_frames": 141,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 75,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 229,
+      "time_sec": 7.633,
+      "team_0": {
+        "possession_frames": 142,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 75,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 230,
+      "time_sec": 7.667,
+      "team_0": {
+        "possession_frames": 143,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 75,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 231,
+      "time_sec": 7.7,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 75,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 232,
+      "time_sec": 7.733,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 76,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 233,
+      "time_sec": 7.767,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 77,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 234,
+      "time_sec": 7.8,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 78,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 235,
+      "time_sec": 7.833,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 79,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 236,
+      "time_sec": 7.867,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 80,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 237,
+      "time_sec": 7.9,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 81,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 238,
+      "time_sec": 7.933,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 82,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 239,
+      "time_sec": 7.967,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 83,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 240,
+      "time_sec": 8.0,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 84,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 241,
+      "time_sec": 8.033,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 85,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 242,
+      "time_sec": 8.067,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 86,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 243,
+      "time_sec": 8.1,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 87,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 244,
+      "time_sec": 8.133,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 88,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 245,
+      "time_sec": 8.167,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 89,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 246,
+      "time_sec": 8.2,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 90,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 247,
+      "time_sec": 8.233,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 91,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 248,
+      "time_sec": 8.267,
+      "team_0": {
+        "possession_frames": 144,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 2,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 92,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 249,
+      "time_sec": 8.3,
+      "team_0": {
+        "possession_frames": 145,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 92,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 250,
+      "time_sec": 8.333,
+      "team_0": {
+        "possession_frames": 146,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 92,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 251,
+      "time_sec": 8.367,
+      "team_0": {
+        "possession_frames": 147,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 92,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 252,
+      "time_sec": 8.4,
+      "team_0": {
+        "possession_frames": 148,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 92,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 253,
+      "time_sec": 8.433,
+      "team_0": {
+        "possession_frames": 149,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 92,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 254,
+      "time_sec": 8.467,
+      "team_0": {
+        "possession_frames": 150,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 92,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 255,
+      "time_sec": 8.5,
+      "team_0": {
+        "possession_frames": 151,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 92,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 256,
+      "time_sec": 8.533,
+      "team_0": {
+        "possession_frames": 152,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 92,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 257,
+      "time_sec": 8.567,
+      "team_0": {
+        "possession_frames": 153,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 92,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 258,
+      "time_sec": 8.6,
+      "team_0": {
+        "possession_frames": 154,
+        "completed_passes": 0,
+        "turnovers": 1,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 92,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 1,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 259,
+      "time_sec": 8.633,
+      "team_0": {
+        "possession_frames": 154,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 93,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 2,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 260,
+      "time_sec": 8.667,
+      "team_0": {
+        "possession_frames": 154,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 94,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 2,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 261,
+      "time_sec": 8.7,
+      "team_0": {
+        "possession_frames": 154,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 95,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 2,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 262,
+      "time_sec": 8.733,
+      "team_0": {
+        "possession_frames": 154,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 96,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 2,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 263,
+      "time_sec": 8.767,
+      "team_0": {
+        "possession_frames": 154,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 97,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 2,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 264,
+      "time_sec": 8.8,
+      "team_0": {
+        "possession_frames": 154,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 98,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 2,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 265,
+      "time_sec": 8.833,
+      "team_0": {
+        "possession_frames": 154,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 99,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 2,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 266,
+      "time_sec": 8.867,
+      "team_0": {
+        "possession_frames": 154,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 100,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 2,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 267,
+      "time_sec": 8.9,
+      "team_0": {
+        "possession_frames": 154,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 3,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 101,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 2,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 268,
+      "time_sec": 8.933,
+      "team_0": {
+        "possession_frames": 155,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 101,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 2,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 269,
+      "time_sec": 8.967,
+      "team_0": {
+        "possession_frames": 156,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 101,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 2,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 270,
+      "time_sec": 9.0,
+      "team_0": {
+        "possession_frames": 157,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 101,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 2,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 271,
+      "time_sec": 9.033,
+      "team_0": {
+        "possession_frames": 158,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 101,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 2,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 272,
+      "time_sec": 9.067,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 2,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 101,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 2,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 273,
+      "time_sec": 9.1,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 102,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 274,
+      "time_sec": 9.133,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 103,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 275,
+      "time_sec": 9.167,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 104,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 276,
+      "time_sec": 9.2,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 105,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 277,
+      "time_sec": 9.233,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 106,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 278,
+      "time_sec": 9.267,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 107,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 279,
+      "time_sec": 9.3,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 108,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 280,
+      "time_sec": 9.333,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 109,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 281,
+      "time_sec": 9.367,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 110,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 282,
+      "time_sec": 9.4,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 111,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 283,
+      "time_sec": 9.433,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 112,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 284,
+      "time_sec": 9.467,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 113,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 285,
+      "time_sec": 9.5,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 114,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 286,
+      "time_sec": 9.533,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 115,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 287,
+      "time_sec": 9.567,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 116,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 288,
+      "time_sec": 9.6,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 117,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 289,
+      "time_sec": 9.633,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 118,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 290,
+      "time_sec": 9.667,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 119,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 291,
+      "time_sec": 9.7,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 120,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 292,
+      "time_sec": 9.733,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 121,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 293,
+      "time_sec": 9.767,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 122,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 294,
+      "time_sec": 9.8,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 123,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 295,
+      "time_sec": 9.833,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 124,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 296,
+      "time_sec": 9.867,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 125,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 297,
+      "time_sec": 9.9,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 126,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 298,
+      "time_sec": 9.933,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 127,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    },
+    {
+      "frame": 299,
+      "time_sec": 9.967,
+      "team_0": {
+        "possession_frames": 159,
+        "completed_passes": 0,
+        "turnovers": 3,
+        "interceptions": 4,
+        "estimated_shots": 0,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      },
+      "team_1": {
+        "possession_frames": 128,
+        "completed_passes": 0,
+        "turnovers": 4,
+        "interceptions": 3,
+        "estimated_shots": 1,
+        "estimated_shots_on_target": 0,
+        "estimated_goals": 0
+      }
+    }
+  ],
+  "player_stats": [
+    {
+      "team": 0,
+      "tracker_id": 14,
+      "touches": 86,
+      "completed_passes": 0,
+      "estimated_shots": 0
+    },
+    {
+      "team": 0,
+      "tracker_id": 21,
+      "touches": 55,
+      "completed_passes": 0,
+      "estimated_shots": 0
+    },
+    {
+      "team": 1,
+      "tracker_id": 18,
+      "touches": 54,
+      "completed_passes": 0,
+      "estimated_shots": 1
+    },
+    {
+      "team": 1,
+      "tracker_id": 6,
+      "touches": 47,
+      "completed_passes": 0,
+      "estimated_shots": 0
+    },
+    {
+      "team": 1,
+      "tracker_id": 7,
+      "touches": 27,
+      "completed_passes": 0,
+      "estimated_shots": 0
+    },
+    {
+      "team": 0,
+      "tracker_id": 43,
+      "touches": 13,
+      "completed_passes": 0,
+      "estimated_shots": 0
+    },
+    {
+      "team": 0,
+      "tracker_id": 56,
+      "touches": 5,
+      "completed_passes": 0,
+      "estimated_shots": 0
+    },
+    {
+      "team": 0,
+      "tracker_id": 19,
+      "touches": 0,
+      "completed_passes": 0,
+      "estimated_shots": 0
+    },
+    {
+      "team": 1,
+      "tracker_id": 9,
+      "touches": 0,
+      "completed_passes": 0,
+      "estimated_shots": 0
+    }
+  ],
+  "player_insights": {
+    "team_0": {
+      "top_passer": null,
+      "top_shooter": null,
+      "most_touches": {
+        "team": 0,
+        "tracker_id": 14,
+        "touches": 86,
+        "completed_passes": 0,
+        "estimated_shots": 0
+      }
+    },
+    "team_1": {
+      "top_passer": null,
+      "top_shooter": {
+        "team": 1,
+        "tracker_id": 18,
+        "touches": 54,
+        "completed_passes": 0,
+        "estimated_shots": 1
+      },
+      "most_touches": {
+        "team": 1,
+        "tracker_id": 18,
+        "touches": 54,
+        "completed_passes": 0,
+        "estimated_shots": 1
+      }
+    }
+  },
+  "team_0": {
+    "possession_frames": 159,
+    "completed_passes": 0,
+    "turnovers": 3,
+    "interceptions": 4,
+    "estimated_shots": 0,
+    "estimated_shots_on_target": 0,
+    "estimated_goals": 0,
+    "possession_percent": 55.4
+  },
+  "team_1": {
+    "possession_frames": 128,
+    "completed_passes": 0,
+    "turnovers": 4,
+    "interceptions": 3,
+    "estimated_shots": 1,
+    "estimated_shots_on_target": 0,
+    "estimated_goals": 0,
+    "possession_percent": 44.6
+  }
+}
