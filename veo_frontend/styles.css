@@ -178,18 +178,41 @@ body {
     gap: 10px;
 }
 
+.panel-title-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
 .panel-title p {
     margin: 0 0 10px;
     color: var(--text-muted);
     font-size: 13px;
 }
 
-.workspace-main video {
+.workspace-main > video {
     width: 100%;
     aspect-ratio: 16 / 9;
     border-radius: 10px;
     border: 1px solid var(--line);
     background: #000;
+}
+
+.main-source-toggle {
+    display: flex;
+    gap: 8px;
+    margin: 0 0 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.main-source-toggle[hidden] {
+    display: none !important;
+}
+
+.main-source-toggle .btn.is-active {
+    outline: 2px solid var(--yellow);
+    outline-offset: 2px;
 }
 
 .workspace-secondary {
@@ -324,6 +347,14 @@ body {
     color: var(--text-muted);
     font-size: 13px;
     font-weight: 600;
+}
+
+.team-label.team0 {
+    color: #7ec4ff;
+}
+
+.team-label.team1 {
+    color: #e8939e;
 }
 
 .possession-value {
@@ -462,6 +493,11 @@ body {
     flex: 1;
 }
 
+.clip-card-actions .btn-rename {
+    flex: 0 0 auto;
+    min-width: 64px;
+}
+
 .events-panel,
 .jobs-panel {
     margin-top: 16px;
@@ -500,6 +536,17 @@ tbody td {
     border-radius: 10px;
     border: 1px solid var(--line);
     background: var(--bg-elev);
+}
+
+.job-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.job-item-header .btn {
+    flex-shrink: 0;
 }
 
 .job-item.done {

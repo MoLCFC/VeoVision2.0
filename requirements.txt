@@ -7,7 +7,8 @@ torchvision>=0.19.0    # PyTorch vision utilities
 
 # Roboflow & Inference
 roboflow>=1.1.0        # Dataset download and management
-inference>=0.60.0      # Roboflow inference library for model inference
+# YOLO26 / newer Roboflow hosted weights require a recent inference client (see yolo26n backend).
+inference>=1.2.7      # Roboflow inference library for model inference
 # inference-gpu>=0.60.0  # GPU version (uncomment if using GPU)
 
 # Computer Vision & Video Processing
@@ -21,7 +22,8 @@ pandas>=2.0.0         # Data manipulation
 scipy>=1.14           # Scientific computing
 
 # Machine Learning & Clustering
-transformers>=4.30.0   # Hugging Face transformers (for SigLIP model)
+# transformers 5.x can error on torch 2.4.x CPU when importing SigLIP (TeamClassifier).
+transformers>=4.56,<5.0   # Hugging Face transformers (for SigLIP model)
 umap-learn>=0.5.0     # UMAP for dimensionality reduction
 scikit-learn>=1.3.0   # Machine learning utilities (KMeans clustering)
 

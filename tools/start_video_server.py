@@ -46,6 +46,10 @@ CLIP_BUCKETS = {
     "uploaded": {"sample": UPLOADED_SAMPLE_DIR, "data": UPLOADED_DATA_DIR},
 }
 
+CLIP_DISPLAY_NAMES_PATH = REPO_ROOT / "clip_display_names.json"
+CLIP_NAMES_LOCK = threading.Lock()
+MAX_CLIP_DISPLAY_NAME_LEN = 120
+
 
 @dataclass
 class JobState:
@@ -61,11 +65,18 @@ class JobState:
     ended_at: Optional[str] = None
     error: Optional[str] = None
     outputs: Dict[str, str] = field(default_factory=dict)
-    run_mode: str = "full"  # full, missing, stats, pitch2d, heatmap, ball
+    run_mode: str = "full"  # full, missing, stats, combined, pitch2d, heatmap, ball
 
 
 JOBS: Dict[str, JobState] = {}
 JOBS_LOCK = threading.Lock()
+
+
+def _job_public_dict(job: JobState) -> Dict[str, Any]:
+    """JSON job payload; includes job_id alias (stable for dashboard clients)."""
+    d = asdict(job)
+    d["job_id"] = job.id
+    return d
 
 
 def _now_iso() -> str:
@@ -81,6 +92,71 @@ def _safe_name(name: str) -> str:
             keep.append("_")
     cleaned = "".join(keep).strip("._")
     return cleaned or "uploaded_clip"
+
+
+def _default_clip_display_name(clip_id: str) -> str:
+    return clip_id.replace("_", " ")
+
+
+def _empty_clip_display_names() -> Dict[str, Dict[str, str]]:
+    return {"regular": {}, "famous": {}, "uploaded": {}}
+
+
+def _load_clip_display_names() -> Dict[str, Dict[str, str]]:
+    with CLIP_NAMES_LOCK:
+        if not CLIP_DISPLAY_NAMES_PATH.exists():
+            return _empty_clip_display_names()
+        try:
+            raw = json.loads(CLIP_DISPLAY_NAMES_PATH.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            return _empty_clip_display_names()
+        if not isinstance(raw, dict):
+            return _empty_clip_display_names()
+        merged = _empty_clip_display_names()
+        for bucket in CLIP_BUCKETS:
+            bucket_names = raw.get(bucket, {})
+            if isinstance(bucket_names, dict):
+                merged[bucket] = {
+                    str(clip_id): str(name).strip()
+                    for clip_id, name in bucket_names.items()
+                    if str(name).strip()
+                }
+        return merged
+
+
+def _save_clip_display_names(data: Dict[str, Dict[str, str]]) -> None:
+    with CLIP_NAMES_LOCK:
+        CLIP_DISPLAY_NAMES_PATH.parent.mkdir(parents=True, exist_ok=True)
+        CLIP_DISPLAY_NAMES_PATH.write_text(
+            json.dumps(data, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+
+
+def _clip_display_name(bucket: str, clip_id: str) -> str:
+    names = _load_clip_display_names()
+    custom = names.get(bucket, {}).get(clip_id)
+    if custom:
+        return custom
+    return _default_clip_display_name(clip_id)
+
+
+def _set_clip_display_name(bucket: str, clip_id: str, name: str) -> str:
+    trimmed = name.strip()
+    if not trimmed or len(trimmed) > MAX_CLIP_DISPLAY_NAME_LEN:
+        raise ValueError(f"Name must be 1–{MAX_CLIP_DISPLAY_NAME_LEN} characters.")
+    data = _load_clip_display_names()
+    data.setdefault(bucket, {})[clip_id] = trimmed
+    _save_clip_display_names(data)
+    return trimmed
+
+
+def _clear_clip_display_name(bucket: str, clip_id: str) -> None:
+    data = _load_clip_display_names()
+    bucket_names = data.get(bucket, {})
+    if clip_id in bucket_names:
+        del bucket_names[clip_id]
+        _save_clip_display_names(data)
 
 
 def _clip_outputs(bucket: str, clip_id: str) -> Dict[str, Path]:
@@ -122,7 +198,23 @@ def _ensure_browser_version(source_path: Path, browser_path: Path, converter) ->
     if browser_path.exists():
         return
     if source_path.exists():
-        converter(source_path, browser_path)
+        if not converter(source_path, browser_path):
+            raise RuntimeError(
+                f"Could not build browser MP4 for {source_path.name}. "
+                "Install ffmpeg or pip install imageio-ffmpeg, then retry."
+            )
+
+
+def _require_browser_mp4(source_path: Path, browser_path: Path, converter) -> None:
+    """Re-encode pipeline output to H.264 for Chrome/Edge/Safari; raises if ffmpeg fails."""
+    if not source_path.exists():
+        raise FileNotFoundError(f"Expected video before browser encode: {source_path}")
+    if not converter(source_path, browser_path):
+        raise RuntimeError(
+            f"Browser encode failed ({source_path.name} -> {browser_path.name}). "
+            "Non-browser MP4 from OpenCV/supervision is often not playable in browsers; "
+            "fix ffmpeg and re-run the job."
+        )
 
 
 def _migrate_legacy_uploaded_clips() -> None:
@@ -170,7 +262,7 @@ def _discover_bucket(bucket: str) -> Dict[str, Any]:
         clips.append(
             {
                 "id": clip_id,
-                "name": clip_id.replace("_", " "),
+                "name": _clip_display_name(bucket, clip_id),
                 "sampleVideo": sample_file.as_posix().replace(str(REPO_ROOT).replace("\\", "/") + "/", ""),
                 "hasCombined": has_combined,
                 "has2D": has_2d,
@@ -192,13 +284,15 @@ def discover_samples() -> Dict[str, Any]:
         "regular": _discover_bucket("regular")["clips"],
         "famous": _discover_bucket("famous")["clips"],
         "uploaded": _discover_bucket("uploaded")["clips"],
-        "jobs": [asdict(job) for job in JOBS.values()],
+        "jobs": [_job_public_dict(job) for job in JOBS.values()],
     }
 
 
 def _set_job(job_id: str, **kwargs: Any) -> None:
     with JOBS_LOCK:
-        job = JOBS[job_id]
+        job = JOBS.get(job_id)
+        if job is None:
+            return
         for key, value in kwargs.items():
             setattr(job, key, value)
 
@@ -221,11 +315,13 @@ def _run_pipeline_job(job_id: str) -> None:
         from veo_project.veo_scripts.video_processing_combined import process_video
 
         with JOBS_LOCK:
-            job = JOBS[job_id]
-            source_path = job.source_video_path
-            bucket = job.category
-            clip_id = job.clip_id
-            run_mode = job.run_mode
+            job = JOBS.get(job_id)
+        if job is None:
+            return
+        source_path = job.source_video_path
+        bucket = job.category
+        clip_id = job.clip_id
+        run_mode = job.run_mode
 
         outputs = _clip_outputs(bucket, clip_id)
         api_key = os.getenv("ROBOFLOW_API_KEY", "urspUQutaAeYNtL3l5Nq")
@@ -233,6 +329,8 @@ def _run_pipeline_job(job_id: str) -> None:
 
         if run_mode == "stats":
             stages_to_run = ["stats"]
+        elif run_mode == "combined":
+            stages_to_run = ["combined"]
         elif run_mode == "pitch2d":
             stages_to_run = ["pitch2d"]
         elif run_mode == "heatmap":
@@ -266,21 +364,21 @@ def _run_pipeline_job(job_id: str) -> None:
 
         for stage in stages_to_run:
             if stage == "combined":
-                _set_job(job_id, stage="combined", progress=stage_progress[stage], message="Running combined detection")
+                _set_job(job_id, stage="combined", progress=stage_progress[stage], message="Running 3D analysis")
                 process_video(source_video_path=source_path, target_video_path=str(outputs["combined"]), roboflow_api_key=api_key)
-                convert_video_to_browser_compatible(outputs["combined"], outputs["combined_browser"])
+                _require_browser_mp4(outputs["combined"], outputs["combined_browser"], convert_video_to_browser_compatible)
             elif stage == "pitch2d":
                 _set_job(job_id, stage="pitch2d", progress=stage_progress[stage], message="Running 2D tactical view")
                 process_video_2d_pitch(source_video_path=source_path, target_video_path=str(outputs["pitch2d"]), roboflow_api_key=api_key)
-                convert_video_to_browser_compatible(outputs["pitch2d"], outputs["pitch2d_browser"])
+                _require_browser_mp4(outputs["pitch2d"], outputs["pitch2d_browser"], convert_video_to_browser_compatible)
             elif stage == "heatmap":
                 _set_job(job_id, stage="heatmap", progress=stage_progress[stage], message="Running combined heatmap")
                 process_video_combined(source_video_path=source_path, target_video_path=str(outputs["heatmap"]), roboflow_api_key=api_key)
-                convert_video_to_browser_compatible(outputs["heatmap"], outputs["heatmap_browser"])
+                _require_browser_mp4(outputs["heatmap"], outputs["heatmap_browser"], convert_video_to_browser_compatible)
             elif stage == "ball":
                 _set_job(job_id, stage="ball", progress=stage_progress[stage], message="Running ball tracking")
                 process_ball_tracking(source_path=source_path, target_path=str(outputs["ball"]), roboflow_api_key=api_key)
-                convert_video_to_browser_compatible(outputs["ball"], outputs["ball_browser"])
+                _require_browser_mp4(outputs["ball"], outputs["ball_browser"], convert_video_to_browser_compatible)
             elif stage == "stats":
                 _set_job(job_id, stage="stats", progress=stage_progress[stage], message="Collecting match stats")
                 collect_match_stats(
@@ -375,7 +473,7 @@ class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
         try:
             while True:
                 with JOBS_LOCK:
-                    jobs = [asdict(job) for job in JOBS.values()]
+                    jobs = [_job_public_dict(job) for job in JOBS.values()]
                 payload = json.dumps({"jobs": jobs})
                 self.wfile.write(f"event: jobs\ndata: {payload}\n\n".encode("utf-8"))
                 self.wfile.flush()
@@ -396,7 +494,7 @@ class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
         if parsed.path.startswith("/api/jobs"):
             with JOBS_LOCK:
-                jobs = [asdict(job) for job in JOBS.values()]
+                jobs = [_job_public_dict(job) for job in JOBS.values()]
             self._send_json(200, {"jobs": jobs})
             return
 
@@ -418,6 +516,8 @@ class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
             "/api/run",
             "/api/run_missing",
             "/api/run_stats",
+            "/api/run_3d",
+            "/api/run_combined",
             "/api/run_pitch2d",
             "/api/run_heatmap",
             "/api/run_ball",
@@ -447,23 +547,31 @@ class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
                     )
                     return
                 run_mode = "full"
-                if parsed.path == "/api/run_missing":
+                if parsed.path == "/api/run":
+                    run_mode = data.get("mode", "full")
+                elif parsed.path == "/api/run_missing":
                     run_mode = "missing"
                 elif parsed.path == "/api/run_stats":
                     run_mode = "stats"
+                elif parsed.path in {"/api/run_3d", "/api/run_combined"}:
+                    run_mode = "combined"
                 elif parsed.path == "/api/run_pitch2d":
                     run_mode = "pitch2d"
                 elif parsed.path == "/api/run_heatmap":
                     run_mode = "heatmap"
                 elif parsed.path == "/api/run_ball":
                     run_mode = "ball"
+                allowed_modes = {"full", "missing", "stats", "combined", "pitch2d", "heatmap", "ball"}
+                if run_mode not in allowed_modes:
+                    self._send_json(400, {"error": f"Invalid mode: {run_mode}"})
+                    return
                 job = start_processing_job(
                     category=category,
                     clip_id=clip_id,
                     source_path=source,
                     run_mode=run_mode,
                 )
-                self._send_json(202, {"job": asdict(job)})
+                self._send_json(202, {"job": _job_public_dict(job)})
             except Exception as exc:
                 self._send_json(500, {"error": str(exc)})
             return
@@ -501,12 +609,23 @@ class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
                 with open(output_path, "wb") as out:
                     out.write(file_item.file.read())
 
-                job = start_processing_job(category=category, clip_id=clip_id, source_path=output_path)
+                upload_label = Path(original_name).stem.replace("_", " ").strip()
+                if upload_label:
+                    try:
+                        _set_clip_display_name(category, clip_id, upload_label[:MAX_CLIP_DISPLAY_NAME_LEN])
+                    except ValueError:
+                        pass
+
                 self._send_json(
-                    202,
+                    200,
                     {
-                        "job": asdict(job),
-                        "clip": {"id": clip_id, "category": category, "sampleVideo": str(output_path.relative_to(REPO_ROOT)).replace("\\", "/")},
+                        "clip": {
+                            "id": clip_id,
+                            "name": _clip_display_name(category, clip_id),
+                            "category": category,
+                            "sampleVideo": str(output_path.relative_to(REPO_ROOT)).replace("\\", "/"),
+                        },
+                        "message": "Upload saved. Open the clip to preview, then run the model pipeline when you are ready.",
                     },
                 )
             except Exception as exc:
@@ -515,8 +634,75 @@ class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         self._send_json(404, {"error": "Not found"})
 
+    def do_PATCH(self):
+        parsed = urlparse(self.path)
+        if parsed.path != "/api/clip":
+            self._send_json(404, {"error": "Not found"})
+            return
+
+        try:
+            data = self._read_json_body()
+            category = data.get("category", "")
+            clip_id = data.get("id", "")
+            name = data.get("name", "")
+
+            if category not in CLIP_BUCKETS:
+                self._send_json(400, {"error": "Invalid category"})
+                return
+            if not clip_id:
+                self._send_json(400, {"error": "Missing clip id."})
+                return
+
+            sample_path = CLIP_BUCKETS[category]["sample"] / f"{clip_id}.mp4"
+            if not sample_path.exists():
+                self._send_json(404, {"error": "Clip not found."})
+                return
+
+            try:
+                saved_name = _set_clip_display_name(category, clip_id, str(name))
+            except ValueError as exc:
+                self._send_json(400, {"error": str(exc)})
+                return
+
+            self._send_json(
+                200,
+                {
+                    "ok": True,
+                    "clip": {"id": clip_id, "category": category, "name": saved_name},
+                },
+            )
+        except Exception as exc:
+            self._send_json(500, {"error": str(exc)})
+
     def do_DELETE(self):
         parsed = urlparse(self.path)
+
+        if parsed.path == "/api/jobs":
+            query = parse_qs(parsed.query)
+            job_id = (query.get("id") or [""])[0] or (query.get("job_id") or [""])[0]
+            if not job_id:
+                self._send_json(400, {"error": "Missing job id"})
+                return
+            try:
+                with JOBS_LOCK:
+                    job = JOBS.get(job_id)
+                    if job is None:
+                        err = "not_found"
+                    elif job.status == "running":
+                        err = "running"
+                    else:
+                        del JOBS[job_id]
+                        err = "deleted"
+                if err == "not_found":
+                    self._send_json(404, {"error": "Job not found"})
+                elif err == "running":
+                    self._send_json(409, {"error": "Cannot remove a job while it is running."})
+                else:
+                    self._send_json(200, {"ok": True})
+            except Exception as exc:
+                self._send_json(500, {"error": str(exc)})
+            return
+
         if parsed.path != "/api/clip":
             self._send_json(404, {"error": "Not found"})
             return
@@ -548,6 +734,8 @@ class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
                 if output_path.exists():
                     output_path.unlink()
                     removed_paths.append(str(output_path.relative_to(REPO_ROOT)).replace("\\", "/"))
+
+            _clear_clip_display_name(category, clip_id)
 
             # Remove stale jobs for deleted clip from in-memory list.
             with JOBS_LOCK:
@@ -609,8 +797,9 @@ def run_server(port: int = 5600) -> None:
         print(f"Server running at: http://localhost:{port}")
         print(f"Dashboard: http://localhost:{port}/veo_frontend/")
         print(
-            "API endpoints: /api/samples, /api/run, /api/run_missing, /api/run_stats, "
-            "/api/run_pitch2d, /api/run_heatmap, /api/run_ball, /api/upload, /api/jobs, /api/jobs/stream"
+            "API endpoints: /api/samples, /api/run, /api/run_missing, /api/run_stats, /api/run_3d, "
+            "/api/run_pitch2d, /api/run_heatmap, /api/run_ball, /api/upload, PATCH /api/clip, "
+            "/api/jobs, DELETE /api/jobs?id=…, DELETE /api/clip, /api/jobs/stream"
         )
         print("Press Ctrl+C to stop")
         print("========================================\n")

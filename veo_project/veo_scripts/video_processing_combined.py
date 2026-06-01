@@ -1,7 +1,7 @@
 """
 Soccer Video Analysis with Player Detection, Team Classification, and Pitch Mapping
 This script processes soccer videos to detect players, ball, goalkeepers, and referees,
-classifies players into teams, and overlays pitch detection lines.
+classifies players into teams, and optionally overlays pitch detection lines.
 """
 
 import os
@@ -89,7 +89,8 @@ def resolve_goalkeepers_team_id(players: sv.Detections, goalkeepers: sv.Detectio
 
 
 def process_video(source_video_path: str, target_video_path: str, 
-                  roboflow_api_key: str = None):
+                  roboflow_api_key: str = None,
+                  show_pitch_lines: bool = False):
     """
     Process a soccer video with complete analysis and annotations.
     
@@ -97,6 +98,8 @@ def process_video(source_video_path: str, target_video_path: str,
         source_video_path: Path to input video
         target_video_path: Path to output video
         roboflow_api_key: Roboflow API key (optional, uses env var if not provided)
+        show_pitch_lines: If True, overlay detected pitch lines on the output video.
+            Pitch detection always runs; this only controls visibility in the export.
     """
     # Get API key
     if roboflow_api_key is None:
@@ -146,22 +149,17 @@ def process_video(source_video_path: str, target_video_path: str,
         text_position=sv.Position.BOTTOM_CENTER
     )
     
-    # Setup annotators for pitch lines
-    edge_annotator = sv.EdgeAnnotator(
-        color=sv.Color.from_hex('#00BFFF'),
-        thickness=2, 
-        edges=CONFIG.edges
-    )
-    
-    vertex_annotator = sv.VertexAnnotator(
-        color=sv.Color.from_hex('#FF1493'),
-        radius=8
-    )
-    
-    vertex_annotator_2 = sv.VertexAnnotator(
-        color=sv.Color.from_hex('#00BFFF'),
-        radius=8
-    )
+    pitch_line_annotators = None
+    if show_pitch_lines:
+        pitch_line_annotators = (
+            sv.EdgeAnnotator(
+                color=sv.Color.from_hex('#00BFFF'),
+                thickness=2,
+                edges=CONFIG.edges,
+            ),
+            sv.VertexAnnotator(color=sv.Color.from_hex('#FF1493'), radius=8),
+            sv.VertexAnnotator(color=sv.Color.from_hex('#00BFFF'), radius=8),
+        )
     
     # Video processing setup
     print("Processing video...")
@@ -283,24 +281,24 @@ def process_video(source_video_path: str, target_video_path: str,
                 frame_all_points = last_view_transformer.transform_points(points=pitch_all_points)
                 frame_all_key_points = sv.KeyPoints(xy=frame_all_points[np.newaxis, ...])
             
-            # Annotate frame with everything
             annotated_frame = frame.copy()
             
-            # Draw pitch lines first (background)
-            if frame_all_key_points is not None:
-                annotated_frame = edge_annotator.annotate(
-                    scene=annotated_frame,
-                    key_points=frame_all_key_points
-                )
-                annotated_frame = vertex_annotator_2.annotate(
-                    scene=annotated_frame,
-                    key_points=frame_all_key_points
-                )
-            if frame_reference_key_points is not None:
-                annotated_frame = vertex_annotator.annotate(
-                    scene=annotated_frame,
-                    key_points=frame_reference_key_points
-                )
+            if show_pitch_lines and pitch_line_annotators is not None:
+                edge_annotator, vertex_annotator, vertex_annotator_2 = pitch_line_annotators
+                if frame_all_key_points is not None:
+                    annotated_frame = edge_annotator.annotate(
+                        scene=annotated_frame,
+                        key_points=frame_all_key_points,
+                    )
+                    annotated_frame = vertex_annotator_2.annotate(
+                        scene=annotated_frame,
+                        key_points=frame_all_key_points,
+                    )
+                if frame_reference_key_points is not None:
+                    annotated_frame = vertex_annotator.annotate(
+                        scene=annotated_frame,
+                        key_points=frame_reference_key_points,
+                    )
             
             # Draw detections on top
             annotated_frame = ellipse_annotator.annotate(

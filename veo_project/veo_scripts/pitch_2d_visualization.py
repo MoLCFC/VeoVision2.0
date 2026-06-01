@@ -23,6 +23,16 @@ from veovision.configs_soccer import SoccerPitchConfiguration
 from veovision.annotators_soccer import draw_pitch, draw_points_on_pitch
 
 
+def _env_int(name: str, default: int) -> int:
+    raw = os.getenv(name)
+    if raw is None or str(raw).strip() == "":
+        return default
+    try:
+        return int(str(raw).strip())
+    except Exception:
+        return default
+
+
 def extract_crops(video_path: str, player_detection_model, player_id: int = 2, 
                   stride: int = 30, confidence: float = 0.3):
     """
@@ -88,8 +98,14 @@ def resolve_goalkeepers_team_id(players: sv.Detections, goalkeepers: sv.Detectio
     return np.array(goalkeepers_team_id, dtype=int)
 
 
-def process_video_2d_pitch(source_video_path: str, target_video_path: str, 
-                            roboflow_api_key: str = None):
+def process_video_2d_pitch(
+    source_video_path: str,
+    target_video_path: str,
+    roboflow_api_key: str = None,
+    player_detection_model_id: Optional[str] = None,
+    pitch_detection_model_id: Optional[str] = None,
+    class_ids: Optional[Dict[str, int]] = None,
+):
     """
     Process a soccer video and create a 2D top-down pitch visualization.
     
@@ -97,6 +113,9 @@ def process_video_2d_pitch(source_video_path: str, target_video_path: str,
         source_video_path: Path to input video
         target_video_path: Path to output video (2D pitch view)
         roboflow_api_key: Roboflow API key (optional, uses env var if not provided)
+        player_detection_model_id: Roboflow model id for player/ball detection (optional)
+        pitch_detection_model_id: Roboflow model id for pitch keypoints (optional)
+        class_ids: Optional mapping for detection class IDs (ball, goalkeeper, player, referee)
     """
     # Get API key
     if roboflow_api_key is None:
@@ -104,13 +123,21 @@ def process_video_2d_pitch(source_video_path: str, target_video_path: str,
     
     # Load detection models
     print("Loading detection models...")
-    PLAYER_DETECTION_MODEL_ID = "veovision-tnp3c/1"
+    PLAYER_DETECTION_MODEL_ID = (
+        player_detection_model_id
+        or os.getenv("VEO_PLAYER_MODEL_ID")
+        or "veovision-tnp3c/1"
+    )
     PLAYER_DETECTION_MODEL = get_model(
         model_id=PLAYER_DETECTION_MODEL_ID,
         api_key=roboflow_api_key
     )
     
-    PITCH_DETECTION_MODEL_ID = "football-field-detection-f07vi/15"
+    PITCH_DETECTION_MODEL_ID = (
+        pitch_detection_model_id
+        or os.getenv("VEO_PITCH_MODEL_ID")
+        or "football-field-detection-f07vi/15"
+    )
     PITCH_DETECTION_MODEL = get_model(
         model_id=PITCH_DETECTION_MODEL_ID, 
         api_key=roboflow_api_key
@@ -118,10 +145,16 @@ def process_video_2d_pitch(source_video_path: str, target_video_path: str,
     
     # Load pitch configuration
     CONFIG = SoccerPitchConfiguration()
+
+    ids = class_ids or {}
+    BALL_ID = int(ids.get("ball", _env_int("VEO_BALL_CLASS_ID", 0)))
+    GOALKEEPER_ID = int(ids.get("goalkeeper", _env_int("VEO_GOALKEEPER_CLASS_ID", 1)))
+    PLAYER_ID = int(ids.get("player", _env_int("VEO_PLAYER_CLASS_ID", 2)))
+    REFEREE_ID = int(ids.get("referee", _env_int("VEO_REFEREE_CLASS_ID", 3)))
     
     # Extract crops and train team classifier
     print("Training team classifier...")
-    crops = extract_crops(source_video_path, PLAYER_DETECTION_MODEL)
+    crops = extract_crops(source_video_path, PLAYER_DETECTION_MODEL, player_id=PLAYER_ID)
     team_classifier = None
     if len(crops) > 0:
         team_classifier = TeamClassifier()
@@ -134,10 +167,6 @@ def process_video_2d_pitch(source_video_path: str, target_video_path: str,
     frame_generator = sv.get_video_frames_generator(source_video_path)
     
     tracker = sv.ByteTrack()
-    BALL_ID = 0
-    GOALKEEPER_ID = 1
-    PLAYER_ID = 2
-    REFEREE_ID = 3
     
     # Track last known ball position for possession calculation
     last_known_ball_position = None

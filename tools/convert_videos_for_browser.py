@@ -24,15 +24,19 @@ def convert_video_to_browser_compatible(input_path, output_path):
             print("Solution: Run 'pip install imageio-ffmpeg'")
             return False
 
+    # Processed clips are usually video-only; forcing AAC on silent inputs often breaks ffmpeg.
+    # Web playback needs H.264 + yuv420p; audio is optional for this dashboard.
     cmd = [
         ffmpeg_exe,
-        '-i', str(input_path),
-        '-c:v', 'libx264',
-        '-pix_fmt', 'yuv420p',
-        '-c:a', 'aac',
-        '-movflags', '+faststart',
         '-y',
-        str(output_path)
+        '-i', str(input_path),
+        '-map', '0:v:0',
+        '-c:v', 'libx264',
+        '-profile:v', 'baseline',
+        '-pix_fmt', 'yuv420p',
+        '-an',
+        '-movflags', '+faststart',
+        str(output_path),
     ]
 
     try:
@@ -41,6 +45,12 @@ def convert_video_to_browser_compatible(input_path, output_path):
             return True
         print(f"ERROR converting {input_path}:")
         print(result.stderr)
+        out_p = Path(output_path)
+        if out_p.exists():
+            try:
+                out_p.unlink()
+            except OSError:
+                pass
         return False
     except Exception as e:
         print(f"ERROR: {e}")
@@ -56,7 +66,8 @@ def convert_all_videos():
 
     folders = [
         base_dir / 'regular_clips' / 'data_content',
-        base_dir / 'famous_clips' / 'data_content'
+        base_dir / 'famous_clips' / 'data_content',
+        base_dir / 'uploaded_clips' / 'data_content',
     ]
 
     total_converted = 0
@@ -115,7 +126,7 @@ if __name__ == "__main__":
 ╚══════════════════════════════════════════════════════╝
 
 This script will convert all processed videos to a
-browser-compatible format (H.264/AAC).
+browser-compatible format (H.264 video, no audio track).
 
 Original files will be kept.
 Converted files will have '_browser' suffix.
